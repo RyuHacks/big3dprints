@@ -1,9 +1,21 @@
 .u-section-1 .u-sheet-1 {
-  min-height: 324px;
+  min-height: 430px;
 }
 
 .u-section-1 .u-custom-html-1 {
   margin-bottom: 60px;
+  margin-top: 106px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 198px;
+  }
+
+  .u-section-1 .u-custom-html-1 {
+    margin-bottom: 1px;
+    margin-top: 1px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -13,17 +25,17 @@
 } .u-section-3 {
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(26, 26, 26, 1));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
   background-size: cover;
 }
 
 .u-section-3 .u-sheet-1 {
-  min-height: 1181px;
+  min-height: 600px;
 }
 
 .u-section-3 .u-custom-html-1 {
   margin-top: 1px;
-  margin-bottom: 60px;
+  margin-bottom: 0;
   height: auto;
   min-height: 865px;
 }
@@ -62,84 +74,4 @@
     margin-top: 526px;
     margin-bottom: -343px;
   }
-}.u-section-4 .u-sheet-1 {
-  min-height: 613px;
-}
-
-.u-section-4 .u-custom-html-1 {
-  margin-bottom: 60px;
-}
-
-@media (max-width: 1199px) {
-  .u-section-4 .u-sheet-1 {
-    min-height: 738px;
-  }
-
-  .u-section-4 .u-custom-html-1 {
-    height: auto;
-    min-height: 678px;
-    margin-top: 0;
-  }
-} .u-section-5 {
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(to bottom, #1a1a1a, #000000);
-  background-size: cover;
-}
-
-.u-section-5 .u-sheet-1 {
-  min-height: 758px;
-}
-
-.u-section-5 .u-custom-html-1 {
-  margin-top: 0;
-  margin-bottom: 0;
-  height: auto;
-  min-height: 127px;
-}
-
-.u-section-5 .u-custom-html-2 {
-  margin-top: 0;
-  margin-bottom: 60px;
-  height: auto;
-  min-height: 440px;
-}
-
-@media (max-width: 991px) {
-  .u-section-5 .u-custom-html-1 {
-    margin-top: 11px;
-  }
-
-  .u-section-5 .u-custom-html-2 {
-    margin-top: 20px;
-  }
-}
-
-@media (max-width: 767px) {
-  .u-section-5 .u-custom-html-1 {
-    margin-top: 62px;
-  }
-
-  .u-section-5 .u-custom-html-2 {
-    margin-top: -66px;
-  }
-}
-
-@media (max-width: 575px) {
-  .u-section-5 .u-custom-html-1 {
-    margin-top: 150px;
-  }
-
-  .u-section-5 .u-custom-html-2 {
-    margin-top: -179px;
-  }
-}.u-section-7 .u-sheet-1 {
-  min-height: 400px;
-}
-
-.u-section-7 .u-custom-html-1 {
-  margin-bottom: 60px;
-  height: auto;
-  min-height: 236px;
-  margin-top: 0;
 }

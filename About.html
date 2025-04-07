@@ -14,9 +14,6 @@
     
     
     
-    
-    
-    
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
@@ -29,7 +26,7 @@
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body data-path-to-root="./" data-include-products="false" class="u-body u-grey-90 u-xl-mode" data-lang="en"><header class="u-black u-clearfix u-header u-sticky u-sticky-be4f" id="sec-1f18" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-grey-90 u-overlap u-overlap-contrast u-overlap-transparent u-xl-mode" data-lang="en"><header class="u-black u-clearfix u-header u-sticky u-sticky-be4f" id="sec-1f18" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
         <a href="./" data-page-id="20629777" class="u-image u-logo u-image-1" data-image-width="1251" data-image-height="637" title="Home">
           <img src="images/WhatsAppImage2025-03-12at22.06.13_eb36c06f.png" class="u-logo-image u-logo-image-1">
         </a>
@@ -62,7 +59,7 @@
         </nav>
       </div></header>
     <section class="u-black u-clearfix u-section-1" id="block-5">
-      <div class="u-clearfix u-sheet u-sheet-1">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-sheet-1">
         <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
           <style> .about-hero {
     padding: 120px 20px 100px;
@@ -111,14 +108,14 @@
     <section class="u-clearfix u-container-align-center u-gradient u-section-3" id="sec-eebc">
       <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
         <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
-          <style> /* --- Overlap Fix Attempt --- */
+          <style> /* --- Overlap Fix Attempt (From Embed 1) --- */
   /* Target the parent Nicepage section and sheet using classes found in the full HTML */
   /* Apply THIS embed inside a section with ID "sec-eebc" that has class "u-section-3" */
   .u-section-3#sec-eebc,
   .u-section-3#sec-eebc > .u-sheet {
-     height: auto !important; /* Override fixed height */
-     min-height: fit-content !important; /* Try to force container to wrap content */
-     /* overflow: visible !important; /* Let content determine size */
+      height: auto !important; /* Override fixed height */
+      min-height: fit-content !important; /* Try to force container to wrap content */
+      /* overflow: visible !important; /* Let content determine size */
   }
   /* Ensure the timeline div itself tries to contain content */
   .timeline {
@@ -131,7 +128,8 @@
     overflow: hidden; /* Add overflow hidden HERE */
     min-height: 300px; /* Ensure it has some base height */
   }
-   /* --- End Overlap Fix Attempt --- */
+    /* --- End Overlap Fix Attempt --- */
+  /* --- Styles from Embed 1 (Timeline) --- */
   /* Gradient background line */
   .timeline::after {
     content: ''; position: absolute; width: 3px;
@@ -214,21 +212,184 @@
   #timeline-conclusion.visible {
     opacity: 1; max-height: 100px; margin-top: 50px;
   }
+  /* --- Styles from Embed 2 (Difference Section) --- */
+  .difference-section {
+    padding: 60px 20px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+  }
+  .difference-section h2 {
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  .difference-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .difference-item {
+    width: 220px;
+    background-color: #1a1a1a;
+    padding: 30px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+  }
+  .difference-item:hover {
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.15);
+    transform: translateY(-4px);
+  }
+  .difference-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+  .difference-item h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .difference-item p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  /* --- Styles from Embed 3 (Materials Section) --- */
+  .materials-section {
+    padding: 0 20px 60px; /* Remove top padding, keep bottom/sides */
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+  }
+  .materials-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Keep flex-start */
+    max-width: 1000px;
+    margin: 0 auto; /* Centering */
+    padding-top: 60px; /* Add padding above cards */
+    position: relative;
+    flex-wrap: wrap;
+    gap: 60px; /* Gap between cards */
+  }
+  .material-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 1;
+    max-width: 450px;
+    width: 100%;
+    padding: 2px;
+    border-radius: 16px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+  .material-wrapper:hover {
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.15);
+    transform: translateY(-4px);
+  }
+  .material {
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    /* Removed height: 100% to let content dictate size */
+  }
+  .material h3 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: bold;
+    transition: text-shadow 0.3s ease;
+    color: white; /* Ensure heading is white */
+  }
+  .material-wrapper:hover h3 {
+    text-shadow: 0 0 8px rgba(0, 204, 255, 0.5);
+  }
+  .material img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Desktop max height */
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 0 20px 0;
+  }
+  /* List Styles */
+  .material ul {
+    list-style: disc;
+    margin: 0 0 auto 0; /* Push list down / let it take space */
+    padding-left: 25px;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.6;
+    color: white; /* Explicitly set list text color to white */
+  }
+  .material li {
+    margin-bottom: 10px;
+    /* Color is inherited from ul */
+  }
+  /* End List Styles */
+  /* --- Media Queries --- */
   @media screen and (max-width: 768px) {
+    /* Timeline Mobile Adjustments */
     .timeline::after,
-    .timeline-fill-line { left: 20px; width: 2px; transform: translateX(0); }
+    .timeline-fill-line {
+      display: none; /* Hide the central lines on mobile */
+    }
     .timeline-item {
-      width: 100%; padding-left: 50px; padding-right: 10px; margin-bottom: 10px;
+      width: 100%;
+      padding-left: 20px; /* Reduced padding as line/dot space is gone */
+      padding-right: 10px;
+      margin-bottom: 10px;
     }
     .timeline-item.right,
     .timeline-item.left { left: 0; text-align: left; }
-    .timeline-item::before { left: 12px; right: auto; top: 25px; }
+    .timeline-item::before {
+      display: none; /* Hide the dots on mobile */
+    }
     .timeline-item.revealed .details { transition-delay: 0s; }
     .timeline-item .content h4,
     .timeline-item .details p { text-align: left; }
     .timeline-item .content h4::after { margin-left: 0; margin-right: auto; width: 60px;}
     .timeline-item .details img { width: 100%; max-width: 100%; margin-left: 0; margin-right: 0; }
     #timeline-conclusion { font-size: 18px; margin-top: 30px;}
+    /* Difference Section Mobile Adjustments */
+    .difference-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    .difference-item {
+      width: 100%;
+      max-width: 300px;
+    }
+    /* Materials Section Mobile Adjustments */
+    .materials-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px; /* Vertical gap on mobile */
+      padding-top: 40px; /* Adjust mobile top padding */
+    }
+    .material-wrapper {
+      width: 100%;
+      max-width: 450px; /* Limit width even on mobile */
+      margin-bottom: 0;
+    }
+    .material ul {
+       padding-left: 20px;
+    }
+    .material img {
+       max-height: 420px; /* Mobile max height */
+    }
+     .material h3 {
+       /* Optional: Adjust heading size/margin for mobile */
+     }
   } </style>
           <div class="timeline">
             <div class="timeline-fill-line"></div>
@@ -334,6 +495,66 @@
             </div>
           </div>
           <div id="timeline-conclusion"> Always Innovating... More Milestones Ahead! </div>
+          <div class="difference-section">
+            <h2>What Makes Us Different</h2>
+            <div class="difference-grid">
+              <div class="difference-item">
+                <div class="difference-icon">✏️</div>
+                <h4>From Hobby to High Standards</h4>
+                <p> What began as a personal passion has evolved into a serious service. I bring the same excitement from day one — with professional-level care and attention. </p>
+              </div>
+              <div class="difference-item">
+                <div class="difference-icon">🤝</div>
+                <h4>1-on-1 Support</h4>
+                <p> You won’t talk to bots — you’ll talk to me. I’m always here to answer, adjust, and make sure you're heard. </p>
+              </div>
+              <div class="difference-item">
+                <div class="difference-icon">✅</div>
+                <h4>Client Satisfaction First</h4>
+                <p> I don’t close projects with unhappy clients. I’ll make it right — that’s my promise. </p>
+              </div>
+              <div class="difference-item">
+                <div class="difference-icon">🕒</div>
+                <h4>Honest Timelines</h4>
+                <p> No guessing games. If there’s a delay, I’ll let you know early — and we’ll figure it out together. </p>
+              </div>
+            </div>
+          </div>
+          <section style="text-align: center; padding: 80px 20px 40px; color: white; font-family: 'Open Sans', sans-serif;">
+            <h2 style="font-size: 26px; text-transform: uppercase; margin-bottom: 14px; letter-spacing: 2px;"> Our 3D Printing Materials </h2>
+            <div style="height: 1px; width: 160px; margin: 0 auto; background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);"></div>
+          </section>
+          <div class="materials-container">
+            <div class="material-wrapper">
+              <div class="material">
+                <h3>PETG</h3>
+                <img src="https://i.postimg.cc/1tZmttyB/PETG2.png" alt="PETG 3D printing material sample">
+                <ul>
+                  <li>Stronger, more durable, and more impact-resistant than PLA.</li>
+                  <li>Excellent chemical resistance and less brittle nature.</li>
+                  <li>Combines flexibility with toughness, ideal for functional parts.</li>
+                  <li>*Note:* Generally costs more and may require longer print times than PLA.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="material-wrapper">
+              <div class="material">
+                <h3>PLA</h3>
+                <img src="https://i.postimg.cc/BnkZrpyd/PLA2.png" alt="PLA 3D printing material sample">
+                <ul>
+                  <li>Easy to print with a smooth finish; great for beginners.</li>
+                  <li>Biodegradable and available in many colors/finishes.</li>
+                  <li>Great choice for prototypes, visual models, cosplay props, and other **low-stress applications**.</li>
+                  <li>Typically faster to print and more cost-effective than PETG.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <section style="text-align: center; padding: 80px 20px; color: white; font-family: 'Open Sans', sans-serif;">
+            <h2 style="font-size: 28px; text-transform: uppercase; margin-bottom: 20px;">Let’s Build Something Together</h2>
+            <p style="font-size: 16px; max-width: 600px; margin: 0 auto 40px;"> Whether you have a sketch, a file, or just an idea — I’m here to bring it to life. I work one-on-one with you to make sure every layer of your print is done right. </p>
+            <div style="font-size: 14px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; padding: 12px 28px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 0 16px rgba(0,204,255,0.2)'; this.style.transform='translateY(-2px)';" onclick="window.location.href='Contact.html'" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';"> Contact Us </div>
+          </section>
           <script> document.addEventListener('DOMContentLoaded', () => {
     const timeline = document.querySelector('.timeline');
     if (timeline) {
@@ -341,43 +562,76 @@
       const fillLine = timeline.querySelector('.timeline-fill-line');
       const conclusion = document.getElementById('timeline-conclusion');
       let updateTimer = null;
-      function updateTimelineProgress() { /* ... same as before ... */
-          const revealedItems = items.filter(item => item.classList.contains('revealed'));
-          let maxHeight = 0;
-          if (revealedItems.length > 0) {
+      function updateTimelineProgress() {
+        // Only update progress if not on mobile (where line is hidden)
+        if (window.innerWidth > 768) {
+            const revealedItems = items.filter(item => item.classList.contains('revealed'));
+            let maxHeight = 0;
+            if (revealedItems.length > 0) {
               const lastRevealedItem = revealedItems[revealedItems.length - 1];
+              // Calculate center based on top offset + half the item's actual height
               const centerOffset = lastRevealedItem.offsetTop + (lastRevealedItem.offsetHeight / 2);
               maxHeight = centerOffset;
-          }
-          if(fillLine) { fillLine.style.height = `${maxHeight}px`; }
+            }
+            if(fillLine) { fillLine.style.height = `${maxHeight}px`; }
+        } else {
+            // Ensure line height is 0 on mobile if it was previously set
+            if(fillLine) { fillLine.style.height = `0px`; }
+        }
       }
-      function revealTimelineItems(clickedIndex) { /* ... same as before ... */
-          let revealOccurred = false; let isLastItemRevealed = false;
-          items.forEach((item, index) => {
-              if (index <= clickedIndex) {
-                  if (!item.classList.contains('revealed')) {
-                      item.classList.add('revealed'); revealOccurred = true;
-                      if (index === items.length - 1) { isLastItemRevealed = true; }
-                  } else if (index === clickedIndex && index === items.length - 1) {
-                      isLastItemRevealed = true;
-                  }
+      function revealTimelineItems(clickedIndex) {
+        let revealOccurred = false;
+        let isLastItemRevealed = false;
+        items.forEach((item, index) => {
+          if (index <= clickedIndex) {
+            if (!item.classList.contains('revealed')) {
+              item.classList.add('revealed');
+              revealOccurred = true;
+              if (index === items.length - 1) { // Check if the *just revealed* item is the last one
+                isLastItemRevealed = true;
               }
-          });
-          if (revealOccurred) {
-              updateTimelineProgress();
-              if (updateTimer) clearTimeout(updateTimer);
-              updateTimer = setTimeout(updateTimelineProgress, 950);
+            } else if (index === clickedIndex && index === items.length - 1) {
+                // Also consider the case where the clicked item is the last one and *already* revealed
+                isLastItemRevealed = true;
+            }
           }
-          if (isLastItemRevealed && conclusion) { conclusion.classList.add('visible'); }
+        });
+        if (revealOccurred) {
+            // Update progress immediately after adding class (will check screen width inside)
+            updateTimelineProgress();
+            // Set a timer to potentially recalculate after transitions complete (details expanding)
+            if (updateTimer) clearTimeout(updateTimer);
+            // The timeout duration should match or slightly exceed the longest transition (details is 0.9s)
+            updateTimer = setTimeout(updateTimelineProgress, 950);
+        }
+        // Show conclusion if the last item is revealed (either newly or previously)
+        if (isLastItemRevealed && conclusion) {
+            conclusion.classList.add('visible');
+        }
       }
       items.forEach((item, index) => {
-          item.addEventListener('click', () => { revealTimelineItems(index); });
-          item.addEventListener('keydown', e => {
-              if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); revealTimelineItems(index); }
-          });
+        item.addEventListener('click', () => {
+          revealTimelineItems(index);
+        });
+        // Add keyboard accessibility
+        item.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault(); // Prevent space bar from scrolling
+            revealTimelineItems(index);
+          }
+        });
       });
+      // Initial update on load
       updateTimelineProgress();
-    } else { console.error("Timeline element not found."); }
+      // Add resize listener to update progress line visibility/height
+      window.addEventListener('resize', () => {
+          // Debounce resize updates slightly
+          if (updateTimer) clearTimeout(updateTimer);
+          updateTimer = setTimeout(updateTimelineProgress, 100);
+      });
+    } else {
+      console.error("Timeline element not found.");
+    }
   }); </script>
         </div>
       </div>
@@ -501,239 +755,6 @@
   }
 }</style>
     </section>
-    <section class="u-clearfix u-grey-90 u-section-4" id="block-3">
-      <div class="u-clearfix u-sheet u-valign-top-lg u-sheet-1">
-        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
-          <style> .difference-section {
-    padding: 60px 20px;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    text-align: center;
-  }
-  .difference-section h2 {
-    font-size: 28px;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-  }
-  .difference-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .difference-item {
-    width: 220px;
-    background-color: #1a1a1a;
-    padding: 30px 20px;
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: all 0.3s ease;
-  }
-  .difference-item:hover {
-    box-shadow: 0 0 20px rgba(0, 204, 255, 0.15);
-    transform: translateY(-4px);
-  }
-  .difference-icon {
-    font-size: 36px;
-    margin-bottom: 15px;
-  }
-  .difference-item h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  .difference-item p {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  @media screen and (max-width: 768px) {
-    .difference-grid {
-      flex-direction: column;
-      align-items: center;
-    }
-    .difference-item {
-      width: 100%;
-      max-width: 300px;
-    }
-  } </style>
-          <div class="difference-section">
-            <h2>What Makes Us Different</h2>
-            <div class="difference-grid"><!-- Hobbyist Precision -->
-              <div class="difference-item">
-                <div class="difference-icon">✏️</div>
-                <h4>From Hobby to High Standards</h4>
-                <p> What began as a personal passion has evolved into a serious service. I bring the same excitement from day one — with professional-level care and attention. </p>
-              </div><!-- One-on-One Support -->
-              <div class="difference-item">
-                <div class="difference-icon">🤝</div>
-                <h4>1-on-1 Support</h4>
-                <p> You won’t talk to bots — you’ll talk to me. I’m always here to answer, adjust, and make sure you're heard. </p>
-              </div><!-- Client Satisfaction -->
-              <div class="difference-item">
-                <div class="difference-icon">✅</div>
-                <h4>Client Satisfaction First</h4>
-                <p> I don’t close projects with unhappy clients. I’ll make it right — that’s my promise. </p>
-              </div><!-- Honest Timelines -->
-              <div class="difference-item">
-                <div class="difference-icon">🕒</div>
-                <h4>Honest Timelines</h4>
-                <p> No guessing games. If there’s a delay, I’ll let you know early — and we’ll figure it out together. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="u-clearfix u-gradient u-section-5" id="block-1">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
-          <section style="text-align: center; padding: 80px 20px 40px; color: white; font-family: 'Open Sans', sans-serif;">
-            <h2 style="font-size: 26px; text-transform: uppercase; margin-bottom: 14px; letter-spacing: 2px;"> Our 3D Printing Materials </h2>
-            <div style="height: 1px; width: 160px; margin: 0 auto; background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);"></div>
-          </section>
-        </div>
-        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-2">
-          <style> .materials-section {
-    padding: 60px 20px;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    position: relative;
-  }
-  .materials-container {
-    display: flex;
-    justify-content: center; /* Center the group of items */
-    align-items: stretch;
-    max-width: 1000px;
-    margin: 0 auto;
-    position: relative;
-    flex-wrap: wrap; /* Allow wrapping on narrow screens */
-    gap: 60px;
-  }
-  /* Removed Divider Style */
-  .material-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 0; /* Prevent growing */
-    flex-shrink: 1; /* Allow shrinking if needed */
-    max-width: 450px; /* Limit max width of a card */
-    width: 100%; /* Allow shrinking below max-width */
-    padding: 2px;
-    border-radius: 16px;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    z-index: 2;
-  }
-  .material-wrapper:hover {
-    box-shadow: 0 0 20px rgba(0, 204, 255, 0.15);
-    transform: translateY(-4px);
-  }
-  .material {
-    padding: 20px;
-    border-radius: 14px;
-    text-align: center;
-    height: 100%;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-  }
-  .material h3 {
-    font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 25px; /* Keep increased space */
-    font-weight: bold;
-    transition: text-shadow 0.3s ease;
-  }
-  .material-wrapper:hover h3 {
-    text-shadow: 0 0 8px rgba(0, 204, 255, 0.5);
-  }
-  .material img {
-    width: 100%;
-    height: auto;
-     /* UPDATED: Adjusted max-height, can fine-tune */
-    max-height: 400px;
-    /* UPDATED: Reverted to cover */
-    object-fit: cover;
-    border-radius: 8px;
-    margin: 0 0 20px 0;
-  }
-  /* List Styles */
-  .material ul {
-    list-style: disc;
-    margin: 0;
-    padding-left: 25px;
-    text-align: left;
-    flex-grow: 1;
-    font-size: 15px;
-    line-height: 1.6;
-  }
-  .material li {
-    margin-bottom: 10px;
-  }
-  /* End List Styles */
-  @media screen and (max-width: 768px) {
-    .materials-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 30px; /* Vertical gap for stacked items */
-    }
-    .material-wrapper {
-      width: 100%;
-      max-width: 450px;
-      margin-bottom: 0;
-    }
-     .material ul {
-        padding-left: 20px;
-     }
-     .material img {
-        /* Keep cover, adjust max height for mobile */
-        max-height: 420px;
-     }
-  } </style>
-          <div class="materials-section">
-            <div class="materials-container">
-              <div class="material-wrapper">
-                <div class="material">
-                  <h3>PETG</h3>
-                  <img src="https://i.postimg.cc/9Fx65vqY/PETG2.png" alt="PETG 3D printing material sample">
-                  <ul>
-                    <li>Stronger, more durable, and more impact-resistant than PLA.</li>
-                    <li>Excellent chemical resistance and less brittle nature.</li>
-                    <li>Combines flexibility with toughness, ideal for functional parts.</li>
-                    <li>*Note:* Generally costs more and may require longer print times than PLA.</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="material-wrapper">
-                <div class="material">
-                  <h3>PLA</h3>
-                  <img src="https://i.postimg.cc/3xN6JdFy/PLA.png" alt="PLA 3D printing material sample">
-                  <ul>
-                    <li>Easy to print with a smooth finish; great for beginners.</li>
-                    <li>Biodegradable and available in many colors/finishes.</li>
-                    <li>Great choice for prototypes, visual models, cosplay props, and other **low-stress applications**.</li>
-                    <li>Typically faster to print and more cost-effective than PETG.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="u-black u-clearfix u-section-7" id="block-4">
-      <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
-        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
-          <section style="text-align: center; padding: 80px 20px; color: white; font-family: 'Open Sans', sans-serif;">
-            <h2 style="font-size: 28px; text-transform: uppercase; margin-bottom: 20px;">Let’s Build Something Together</h2>
-            <p style="font-size: 16px; max-width: 600px; margin: 0 auto 40px;"> Whether you have a sketch, a file, or just an idea — I’m here to bring it to life. I work one-on-one with you to make sure every layer of your print is done right. </p>
-            <div style="font-size: 14px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; padding: 12px 28px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; cursor: pointer; transition: all 0.3s ease;" u-secured-onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';" onclick="window.location.href='Contact.html'" onmouseover="this.style.boxShadow='0 0 16px rgba(0,204,255,0.2)'; this.style.transform='translateY(-2px)';"> Contact Us </div>
-          </section>
-        </div>
-      </div>
-    </section>
     
     
     
@@ -756,7 +777,7 @@
                 <h3 class="footer-heading">Online Shop</h3>
                 <ul class="footer-links">
                   <li>
-                    <a href="https://www.youtube.com/embed/VIDEO_ID" target="_blank" rel="noopener noreferrer">Etsy</a>
+                    <a href="https://www.etsy.com/shop/Big3dPrintsCA" target="_blank" rel="noopener noreferrer">Etsy</a>
                   </li>
                 </ul>
               </div>
@@ -772,41 +793,43 @@
             <div class="footer-email-link">
               <a href="mailto:big3dprints@outlook.com">big3dprints@outlook.com</a>
             </div>
+            <div class="footer-sponsorship"> Sponsored by <img src="https://i.postimg.cc/J7G6nQdT/otechuni.png" alt="Ontario Tech University logo">
+            </div>
           </footer>
           <style> .site-footer {
     background-color: #000000; /* Black background */
-    color: #ffffff;          /* White text */
-    padding: 50px 20px 40px;  /* Adjusted bottom padding */
+    color: #ffffff;           /* White text */
+    padding: 50px 20px 40px;  /* Default padding (Desktop) */
     font-family: 'Open Sans', sans-serif; /* Consistent font */
-    overflow-x: hidden; /* Prevent horizontal scrollbar from nudge */
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
   }
 
   .footer-container {
-    max-width: 1000px;     /* Max width of footer content */
-    margin: 0 auto;        /* Center the container horizontally */
-    display: flex;         /* Use flexbox for columns */
-    flex-wrap: wrap;       /* Allow columns to wrap on smaller screens */
+    max-width: 1000px;      /* Max width of footer content */
+    margin: 0 auto;         /* Center the container horizontally */
+    display: flex;          /* Use flexbox for columns */
+    flex-wrap: wrap;        /* Allow columns to wrap on smaller screens */
     justify-content: center; /* Group columns in the center */
-    gap: 60px;             /* Space between centered columns */
-    position: relative;    /* Enable positioning */
-    left: 1vw;             /* Shift 1% of viewport width to the right */
-    padding-bottom: 30px; /* Add padding below columns before email/border */
+    gap: 60px;              /* Space between centered columns (Desktop) */
+    position: relative;     /* Enable positioning */
+    left: 1vw;              /* Shift 1% of viewport width to the right (Desktop) */
+    padding-bottom: 30px; /* Space below columns before email/border (Desktop) */
   }
 
   .footer-column {
-    flex-grow: 0;          /* Prevent columns from growing */
-    min-width: 180px;      /* Minimum width before wrapping */
-    text-align: left;      /* Keep text left-aligned */
-    margin-bottom: 20px;   /* Space below columns when stacked */
+    flex-grow: 0;           /* Prevent columns from growing */
+    min-width: 180px;       /* Minimum width before wrapping */
+    text-align: left;       /* Default text alignment (Desktop) */
+    margin-bottom: 20px;    /* Space below columns when stacked */
   }
 
   .footer-heading {
-    font-size: 18px;       /* Heading size */
-    font-weight: 600;      /* Semi-bold */
+    font-size: 18px;        /* Heading size */
+    font-weight: 600;       /* Semi-bold */
     margin-top: 0;
-    margin-bottom: 10px;   /* Keep reduced space below heading */
-    position: relative;    /* Needed for underline positioning */
-    display: inline-block; /* Size to content for underline & allows left-align */
+    margin-bottom: 15px;    /* Consistent margin below heading+underline */
+    position: relative;     /* Needed for underline positioning */
+    display: inline-block; /* Size to content for underline & allows left-align (Desktop) */
     letter-spacing: 0.5px; /* Slight letter spacing */
   }
 
@@ -814,27 +837,28 @@
     content: '';
     position: absolute;
     left: 0;
-    bottom: -8px;
-    width: 100%;
+    bottom: -8px; /* Position underline below text */
+    width: 100%;  /* Match width of the heading text */
     height: 2px;
     background-color: #D50000;
+    display: block;
   }
 
   .footer-links {
-    list-style: none;      /* Remove default bullet points */
+    list-style: none;       /* Remove default bullet points */
     padding: 0;
     margin: 0;
   }
 
   .footer-links li {
-    margin-bottom: 12px;   /* Space between links */
+    margin-bottom: 12px;    /* Space between links */
   }
 
   .footer-links a {
-    color: #ffffff;          /* White link text */
+    color: #ffffff;         /* White link text */
     text-decoration: none; /* Remove default underline */
     font-size: 14px;
-    font-weight: bold;     /* Keep links bold */
+    font-weight: bold;      /* Keep links bold */
     transition: color 0.3s ease; /* Smooth color change on hover */
   }
 
@@ -842,11 +866,10 @@
     color: #D50000; /* Red color on hover */
   }
 
-  /* NEW: Email Link Styles */
   .footer-email-link {
-    text-align: center;    /* Center the email link */
-    margin-top: 30px;      /* Space above the border/email */
-    padding-top: 30px;     /* Space between border and email */
+    text-align: center;     /* Center the email link */
+    margin-top: 30px;       /* Space above the border/email (Desktop) */
+    padding-top: 30px;      /* Space between border and email (Desktop) */
     border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
   }
 
@@ -861,25 +884,77 @@
   .footer-email-link a:hover {
     color: #D50000; /* Red hover color */
   }
-  /* End NEW Styles */
+
+  .footer-sponsorship {
+    text-align: center;
+    color: #aaaaaa; /* Dimmer grey color for "Sponsored by" */
+    font-size: 12px;  /* Font size for "Sponsored by" */
+    margin-top: 20px; /* Space above sponsorship line */
+    padding: 0 20px;  /* Add horizontal padding for safety */
+  }
+
+  /* Style for the logo image */
+  .footer-sponsorship img {
+    height: 65px; /* INCREASED LOGO HEIGHT */
+    width: auto;  /* Maintain aspect ratio */
+    vertical-align: middle; /* Align logo vertically with the text */
+    margin-left: 6px; /* Add a small space between "Sponsored by" and the logo */
+  }
 
 
-  /* Responsiveness */
+  /* === Mobile Styles === */
   @media screen and (max-width: 600px) {
-    .footer-container {
-      gap: 30px;
-      left: 0; /* Reset shift */
-      padding-bottom: 20px; /* Adjust padding */
+    .site-footer {
+       padding: 30px 20px 30px; /* Reduced padding for mobile */
     }
-     .footer-column {
-        min-width: 100%;
-        flex-basis: 100%;
+
+    .footer-container {
+      gap: 20px;             /* Reduced gap between stacked columns */
+      left: 0;               /* Reset shift */
+      padding-bottom: 15px;  /* Reduced padding below columns */
+      flex-direction: column;/* Explicitly stack columns */
+      align-items: center;   /* Center columns container */
+    }
+
+    .footer-column {
+      min-width: 100%;       /* Ensure column takes full width */
+      flex-basis: 100%;
+      text-align: center;    /* Center content (including heading) within the column on mobile */
+      margin-bottom: 25px;   /* Increased space between stacked columns */
+    }
+
+     .footer-column:last-child {
+         margin-bottom: 0; /* Remove margin from last column */
      }
-     .footer-email-link {
-        margin-top: 20px;
-        padding-top: 20px;
-     }
-  } </style>
+
+    .footer-heading {
+      display: inline-block; /* Keep inline-block to size underline to text */
+      margin-bottom: 15px;   /* Space below heading + underline */
+    }
+
+    .footer-links li {
+        margin-bottom: 10px; /* Slightly reduce space between links */
+    }
+
+    .footer-email-link {
+      margin-top: 25px;      /* Adjusted space above border/email */
+      padding-top: 25px;     /* Adjusted space below border */
+    }
+
+    .footer-sponsorship {
+        margin-top: 15px; /* Adjusted space for mobile */
+        font-size: 11px; /* Slightly smaller text on mobile */
+    }
+
+    /* Optional: Adjust logo size slightly for mobile if needed */
+    /* If 35px is too big for mobile, uncomment and adjust this */
+    /*
+    .footer-sponsorship img {
+        height: 30px;
+    }
+    */
+  }
+  /* End Mobile Styles */ </style>
         </div>
       </div></footer>
   
