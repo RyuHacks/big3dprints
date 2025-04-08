@@ -122,6 +122,7 @@
               <div class="contact-form-column">
                 <h2>Get In Touch</h2>
                 <p>Tell us of your amazing 3D designs and it will come to life!</p>
+                <p class="form-notes"> Please note: We typically require more than a week for printing (same-week service is unavailable) and currently do not offer post-processing services like sanding or painting. </p>
                 <form class="contact-form" action="#" method="post" onsubmit="return false;">
                   <div class="form-group">
                     <input type="text" id="name" name="name" placeholder="Enter your Name" required="">
@@ -135,6 +136,14 @@
                   <div class="form-group">
                     <label for="stlfile" class="file-label">Upload STL File (Optional):</label>
                     <input type="file" id="stlfile" name="stlfile" accept=".stl,.obj,.3mf">
+                  </div>
+                  <div class="form-group postal-group">
+                    <input type="text" id="postal_code" name="postal_code" placeholder="Postal Code (e.g., A1A 1A1)" pattern="[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d" title="Enter a valid Canadian postal code (A1A 1A1) for shipping calculation.">
+                    <span class="shipping-calc-label">(for shipping estimate)</span>
+                  </div>
+                  <div class="checkbox-group form-group">
+                    <input type="checkbox" id="social_share" name="social_share" value="yes">
+                    <label for="social_share">May we feature photos/videos of your print (anonymously) on our social media?</label>
                   </div>
                   <div class="form-group">
                     <button type="submit" class="submit-button">SUBMIT</button>
@@ -186,12 +195,22 @@
     text-transform: uppercase;
     letter-spacing: 1px;
   }
-  .contact-form-column p {
+  .contact-form-column p { /* Style for the main intro paragraph */
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 10px; /* Reduced bottom margin */
     font-size: 16px;
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
+  }
+  /* Added style for the notes paragraph */
+  .contact-form-column .form-notes {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 35px; /* Space before form fields */
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7); /* Slightly dimmer */
+    line-height: 1.5;
+    font-style: italic; /* Optional: make it stand out */
   }
   .contact-form .form-group {
     margin-bottom: 30px; /* Space between form fields */
@@ -209,6 +228,7 @@
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Include padding in width calculation */
   }
   .contact-form input[type="text"]:focus,
   .contact-form input[type="email"]:focus,
@@ -225,7 +245,7 @@
   .contact-form ::-ms-input-placeholder { color: rgba(255, 255, 255, 0.6); } /* Edge */
   .contact-form textarea {
     resize: vertical; /* Allow vertical resize only */
-    min-height: 100px;
+    min-height: 80px; /* Adjusted min height */
   }
   /* File Input Styling */
   .contact-form .file-label {
@@ -237,11 +257,10 @@
   .contact-form input[type="file"] {
     color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
-    /* Basic file input styling - more advanced requires JS/pseudo-elements */
-    /* Add some margin if needed */
+    /* Basic file input styling */
   }
   /* Style the button shown to user for file input */
-   .contact-form input[type="file"]::file-selector-button {
+  .contact-form input[type="file"]::file-selector-button {
       background-color: #333;
       color: white;
       border: 1px solid rgba(255,255,255,0.2);
@@ -253,6 +272,69 @@
    }
    .contact-form input[type="file"]::file-selector-button:hover {
        background-color: #444;
+   }
+   /* Added Postal Code Group Styling */
+   .postal-group {
+     display: flex;
+     align-items: baseline; /* Align input and text nicely */
+     gap: 10px;
+     flex-wrap: wrap; /* Allow wrapping on small screens */
+   }
+   .postal-group input[type="text"] {
+     flex: 1 1 180px; /* Allow input to grow but have a base size */
+     /* Ensure underline doesn't overlap label */
+     margin-bottom: 0;
+   }
+   .shipping-calc-label {
+     font-size: 13px;
+     color: rgba(255, 255, 255, 0.6);
+     white-space: nowrap;
+     flex-shrink: 0; /* Prevent label from shrinking too much */
+     padding-bottom: 5px; /* Align better with input baseline */
+   }
+   /* Added Checkbox Group Styling */
+   .checkbox-group {
+     display: flex;
+     align-items: center; /* Vertically center checkbox and label */
+     gap: 10px;
+     margin-bottom: 25px; /* Adjust spacing */
+   }
+   .checkbox-group input[type="checkbox"] {
+     width: auto; /* Let checkbox size naturally */
+     margin: 0; /* Reset margin */
+     flex-shrink: 0; /* Prevent checkbox from shrinking */
+     appearance: none; /* Remove default */
+     background-color: transparent;
+     border: 1px solid #D50000;
+     width: 16px;
+     height: 16px;
+     border-radius: 3px;
+     cursor: pointer;
+     position: relative;
+     display: inline-block;
+   }
+   .checkbox-group input[type="checkbox"]:checked {
+      background-color: #D50000; /* Red check background */
+      border-color: #D50000;
+   }
+    /* Add checkmark using pseudo-element */
+   .checkbox-group input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 4px;
+      height: 8px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+   .checkbox-group label {
+     font-size: 14px;
+     color: rgba(255, 255, 255, 0.8);
+     cursor: pointer;
+     line-height: 1.4;
+     margin: 0; /* Reset margin */
    }
   /* Submit Button Styling */
   .contact-form .submit-button {
@@ -287,10 +369,26 @@
       margin: 0 auto; /* Center stacked columns */
     }
      .contact-form-column {
-         padding: 30px 25px; /* Adjust padding for mobile */
+        padding: 30px 25px; /* Adjust padding for mobile */
      }
      .contact-form-column h2 { font-size: 26px; }
-     .contact-form-column p { font-size: 15px; }
+     .contact-form-column p, .contact-form-column .form-notes { font-size: 14px; } /* Adjust notes size too */
+     /* Ensure postal group wraps cleanly */
+     .postal-group input[type="text"] {
+        flex-basis: 100%; /* Make input take full width */
+     }
+     .shipping-calc-label {
+        padding-bottom: 0; /* Reset padding adjustment */
+        width: 100%; /* Take full width */
+        text-align: right; /* Align label text to right */
+        margin-top: -5px; /* Pull up slightly */
+     }
+     .checkbox-group {
+       align-items: flex-start; /* Align checkbox to top */
+     }
+     .checkbox-group label {
+       flex: 1; /* Allow label to wrap */
+     }
   } </style>
         </div>
       </div>
