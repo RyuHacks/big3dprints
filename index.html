@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="index.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-    <meta name="generator" content="Nicepage 7.6.4, nicepage.com">
+    <meta name="generator" content="Nicepage 7.7.3, nicepage.com">
+    
     
     
     
@@ -63,23 +64,16 @@
           </div>
         </nav>
       </div></header>
-    <section class="u-clearfix u-shading u-video u-section-1" id="block-6">
-      <div class="u-background-video u-expanded" style="">
-        <div class="embed-responsive embed-responsive-1">
-          <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/wvRA47wQbj4?mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1" data-autoplay="1" frameborder="0" allowfullscreen=""></iframe>
-        </div>
-        <div class="u-video-shading"></div>
-      </div>
+    <section class="u-clearfix u-gradient u-video u-section-1" id="block-6">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
           <section class="hero-section">
             <div class="hero-container">
               <div class="hero-image-col">
-                <img src="https://i.postimg.cc/tCH9GPZk/71w-PNg-Pf-A8-L.png" alt="3D Printer" class="hero-image">
+                <img src="https://i.postimg.cc/C5NLZR38/Chat-GPT-Image-Apr-16-2025-07-42-51-PM.png" alt="3D Printer" class="hero-image">
               </div>
               <div class="hero-text-col">
-                <h1 class="hero-title">
-                  <span class="big-word">BIG</span> 3D PRINTS 
+                <h1 class="hero-title"><span class="big-word">BIG</span> 3D PRINTS 
                 </h1>
                 <p class="hero-subtitle"> "Bringing Your Big Ideas to Life<br>One Layer at a Time" 
                 </p>
@@ -90,9 +84,11 @@
           <style> /* General Section Styling */
   .hero-section {
     padding: 80px 20px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Consider adding a fallback font */
     color: white;
-    overflow: hidden;
+    overflow: hidden; /* Prevents potential overflow issues */
+    /* You might want to set a background here or on a parent container */
+    /* background-color: #222; */
   }
   /* Flex Container */
   .hero-container {
@@ -118,6 +114,7 @@
     max-width: 450px;
     height: auto;
     object-fit: contain;
+    display: block; /* Prevents potential extra space below image */
   }
   /* Text Column */
   .hero-text-col {
@@ -132,6 +129,7 @@
   /* Text Elements */
   .hero-title {
     font-size: 64px;
+    font-weight: bold; /* Added for emphasis */
     text-transform: uppercase;
     margin: 0;
     line-height: 1.1;
@@ -141,40 +139,53 @@
     margin-top: 20px;
     color: rgba(255, 255, 255, 0.85);
   }
-  /* Button - Default State (Increased Specificity, No Border) */
-  .hero-section .hero-button { /* Increased specificity */
+  /* Button - Default State */
+  .hero-section .hero-button {
     margin-top: 30px;
-    padding: 14px 28px; /* Reverted padding */
-    background-color: #D50000;
-    color: white !important; /* Ensure white text, override external styles */
+    padding: 14px 28px;
+    background-color: #D50000; /* Example Red */
+    color: white !important;
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 6px;
     text-decoration: none;
-    border: none; /* Explicitly remove border */
+    border: none;
     display: inline-block;
-    /* Animate background and color only */
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-  /* Button - Hover State (Increased Specificity, No Border) */
-  .hero-section .hero-button:hover { /* Increased specificity */
+  /* Button - Hover State */
+  .hero-section .hero-button:hover {
       background-color: white;
-      color: #D50000 !important; /* Ensure red text, override external styles */
+      color: #D50000 !important;
       cursor: pointer;
   }
-  /* Animation */
+  /* --- Animation Target --- */
   .big-word {
     display: inline-block;
     transform: scale(1);
     transform-origin: right;
+    /* Apply the updated animation */
     animation: growBig 1.4s ease-out forwards;
   }
+  /* --- UPDATED KEYFRAMES WITH GLOW --- */
+ /* --- UPDATED KEYFRAMES WITH REDUCED GLOW --- */
   @keyframes growBig {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.5); }
+    0% {
+      transform: scale(1);
+      text-shadow: none; /* Start with no glow */
+    }
+    100% {
+      transform: scale(1.5);
+      /* Reduced Glow: Lower opacity values and slightly smaller blur */
+      text-shadow: 0 0 4px rgba(255, 255, 255, 0.6),  /* Inner glow, less bright */
+                   0 0 8px rgba(255, 255, 255, 0.4),  /* Medium glow, less bright */
+                   0 0 15px rgba(255, 255, 255, 0.2); /* Outer glow, much softer */
+    }
   }
+  /* --- END KEYFRAMES UPDATE --- */
+  /* --- END KEYFRAMES UPDATE --- */
   /* Responsive adjustments */
   @media screen and (max-width: 768px) {
     .hero-section {
@@ -194,11 +205,17 @@
     }
     .hero-image { max-width: 280px; }
     .hero-title { font-size: 44px; }
-    .big-word{ transform-origin: center; }
+    /* Mobile fix: Disable animation */
+    .big-word {
+      transform-origin: center;
+      animation: none;          /* Disable the animation (and glow) on mobile */
+      transform: scale(1);      /* Ensure it stays at normal size */
+      text-shadow: none;        /* Ensure no residual glow if styles change */
+    }
     .hero-subtitle { font-size: 16px; }
-    .hero-button { /* Selector specificity matches base */
-       margin-left: auto;
-       margin-right: auto;
+    .hero-button {
+        margin-left: auto;
+        margin-right: auto;
     }
   } </style>
         </div>
@@ -210,7 +227,7 @@
           <section style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 100px 20px; max-width: 1100px; margin: 0 auto; color: white; font-family: 'Open Sans', sans-serif;"><!-- Text Side -->
             <div style="flex: 1 1 480px; padding-right: 40px;">
               <h2 style="font-size: 32px; text-transform: uppercase; margin-bottom: 16px;">Welcome to Big3DPrints</h2>
-              <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 20px;"> We’re not just another 3D printing company — we’re a student-run, hands-on service built around quality, precision, and personal support. </p>
+              <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 20px;"> We’re not just another 3D printing company — we’re a hands-on service built around quality, precision, and personal support. </p>
               <p style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.7);"> Whether you're a designer, engineer, cosplayer, or just curious, our printers, materials, and personalized workflow are here to bring your ideas to life. </p>
             </div><!-- Visual / Stat or Quote -->
             <div style="flex: 1 1 400px; text-align: center; margin-top: 40px;">
@@ -531,62 +548,226 @@
         <div class="custom-expanded u-layout-horizontal u-list u-list-1">
           <div class="u-repeater u-repeater-1">
             <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-bottom-xl u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-1">
-                <img class="custom-expanded u-image u-image-default u-image-1" alt="" data-image-width="794" data-image-height="992" src="images/vase.jpg">
-                <h4 class="u-align-left u-text u-text-default u-text-1">Amazing Vase</h4>
-                <p class="u-align-left u-text u-text-default u-text-2">I created an amazing mask. This mask is crucial to create the perfect symbol of life, balance. </p>
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
+                <img class="u-expanded-width u-image u-image-default u-image-1" alt="" data-image-width="822" data-image-height="781" src="images/WhatsAppImage2025-04-07at22.09.24_fb52452e.jpg">
+                <h4 class="u-align-left u-text u-text-default u-text-1">Iron Man Suit</h4>
+                <p class="u-align-left u-text u-text-default u-text-2"> A fully 3d printed iron man suit, ready for&nbsp;cosplay!</p>
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-bottom-xl u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2">
-                <img class="custom-expanded u-image u-image-default u-image-2" alt="" data-image-width="900" data-image-height="1600" src="images/WhatsAppImage2025-03-27at00.22.36_8e7cf47c.jpg">
-                <h4 class="u-align-left u-text u-text-default u-text-3">Half Helmet</h4>
-                <p class="u-align-left u-text u-text-default u-text-4">Batman doesn't need to conceal his identity anymore and becomes the new joker.</p>
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
+                <img class="u-expanded-width u-image u-image-default u-image-2" alt="" data-image-width="900" data-image-height="1600" src="images/WhatsAppImage2025-03-27at00.22.36_8e7cf47c.jpg">
+                <h4 class="u-align-left u-text u-text-default u-text-3">Complex Helmet</h4>
+                <p class="u-align-left u-text u-text-default u-text-4"> A complex helmet requiring careful tuning and precise calibration to achieve a sharp yet stunning&nbsp;finish!</p>
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-bottom-xl u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-3">
-                <img class="custom-expanded u-image u-image-default u-image-3" alt="" data-image-width="1080" data-image-height="1080" src="images/1734062270014.jpg">
-                <h4 class="u-align-left u-text u-text-default u-text-5">Sample Headline</h4>
-                <p class="u-align-left u-text u-text-default u-text-6">Sample text. Click to select the Text Element.</p>
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                <img class="u-expanded-width u-image u-image-default u-image-3" alt="" data-image-width="713" data-image-height="717" src="images/WhatsAppImage2025-04-07at22.13.52_ebdfcb29.jpg">
+                <h4 class="u-align-left u-text u-text-default u-text-5">Toy Replacement </h4>
+                <p class="u-align-left u-text u-text-default u-text-6"> A 3d printed indoor toy replacement part. at 27X LESS than the original manufacter quoted us an injection model replacement for.&nbsp;<br>
+                </p>
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-bottom-xl u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-4">
-                <img class="custom-expanded u-image u-image-default u-image-4" alt="" data-image-width="794" data-image-height="794" src="images/thors.png">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
+                <img class="u-expanded-width u-image u-image-default u-image-4" alt="" data-image-width="794" data-image-height="794" src="images/thors.png">
                 <h4 class="u-align-left u-text u-text-default u-text-7">Thor's Hammer</h4>
                 <p class="u-align-left u-text u-text-default u-text-8"> A detailed 3D-printed replica of Thor’s hammer, showcasing the precision and quality of our custom prints.</p>
               </div>
             </div>
           </div>
-          <a class="u-gallery-nav u-gallery-nav-prev u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-gallery-nav-1" href="#" role="button">
-            <span aria-hidden="true">
+          <a class="u-gallery-nav u-gallery-nav-prev u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-gallery-nav-1" href="#" role="button"><span aria-hidden="true">
               <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
 c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
-c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
-            </span>
-            <span class="sr-only">
+c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg></span><span class="sr-only">
               <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
 c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
-c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
-            </span>
+c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg></span>
           </a>
-          <a class="u-gallery-nav u-gallery-nav-next u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-gallery-nav-2" href="#" role="button">
-            <span aria-hidden="true">
+          <a class="u-gallery-nav u-gallery-nav-next u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-gallery-nav-2" href="#" role="button"><span aria-hidden="true">
               <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
 L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
-            </span>
-            <span class="sr-only">
+c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg></span><span class="sr-only">
               <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
 L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
-            </span>
+c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg></span>
           </a>
         </div>
       </div>
     </section>
-    <section class="u-align-center u-clearfix u-container-align-center u-container-align-center-md u-container-align-center-sm u-container-align-center-xs u-container-align-center-xxl u-section-10" id="sec-a4b0">
+    <section class="u-clearfix u-grey-90 u-section-10" id="block-7">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+          <section class="dark-theme reviews-section">
+            <h2 class="reviews-title">What Our Customers Say</h2>
+            <div class="reviews-grid">
+              <article class="review-card">
+                <header class="review-header"><span class="reviewer-name">Arlinda</span><span class="review-rating" aria-label="5 out of 5 stars"> ★★★★★<span class="visually-hidden">5 out of 5 stars</span></span><span class="review-date">26 Mar, 2025</span>
+                </header>
+                <div class="review-body">
+                  <p>I had complex 3D prints and I couldn’t have asked for a better experience. Huz is incredibly knowledgeable, detail-oriended and a problem solver. He took the time to refine my prints multiple times to achieve the highest quality. If you’re looking for someone who strives for perfection, Huz is the one. Highly recommend!</p>
+                </div>
+                <footer class="review-footer"> Service: Big 3D Printing Service </footer>
+              </article>
+              <article class="review-card">
+                <header class="review-header"><span class="reviewer-name">Mary</span><span class="review-rating" aria-label="5 out of 5 stars"> ★★★★★<span class="visually-hidden">5 out of 5 stars</span></span><span class="review-date">15 Mar, 2025</span>
+                </header>
+                <div class="review-body">
+                  <p>Huz was wonderful to work with! Extremely communicative, provided lots of updates and the final product was perfect. I’ll absolutely be working with him again for any big prints.</p>
+                </div>
+                <footer class="review-footer"> Service: Big 3D Printing Service </footer>
+              </article>
+              <article class="review-card">
+                <header class="review-header"><span class="reviewer-name">Brooke</span><span class="review-rating" aria-label="5 out of 5 stars"> ★★★★★<span class="visually-hidden">5 out of 5 stars</span></span><span class="review-date">02 Nov, 2023</span>
+                </header>
+                <div class="review-body">
+                  <p>Absolutely AMAZING seller! They helped me with resizing, gave amazing tips, added a free sanding job and more. I’m a newbie to spidey face shells and they went out of their way to help. Even after it arrived they answered my question. Truly amazing. Great quality.</p>
+                </div>
+                <footer class="review-footer"> Service: Large 3d Prints Service </footer>
+              </article>
+              <article class="review-card">
+                <header class="review-header"><span class="reviewer-name">Hailie</span><span class="review-rating" aria-label="5 out of 5 stars"> ★★★★★<span class="visually-hidden">5 out of 5 stars</span></span><span class="review-date">09 Jul, 2023</span>
+                </header>
+                <div class="review-body">
+                  <p>Huz is amazing!!! I highly recommend him! He's a great seller and very helpful with the printing jobs he does! He's fantastic with communication and very prompt! Thank you so much!</p>
+                </div>
+                <footer class="review-footer"> Service: Large 3d Prints Service </footer>
+              </article>
+              <article class="review-card">
+                <header class="review-header"><span class="reviewer-name">Gabriel</span><span class="review-rating" aria-label="5 out of 5 stars"> ★★★★★<span class="visually-hidden">5 out of 5 stars</span></span><span class="review-date">18 Feb, 2025</span>
+                </header>
+                <div class="review-body">
+                  <p>The craftsman worked hard to complete my project. I was entitled to live video monitoring throughout the printing. Since there were two bad prints, the craftsman offered to keep the two half-helmets for free by only paying the shipping costs!</p><span class="original-language-link">See in original language</span>
+                </div>
+                <footer class="review-footer"> Service: Big 3D Printing Service </footer>
+              </article>
+            </div>
+          </section>
+          <style> /* Basic Reset & Font */
+  .reviews-section.dark-theme { /* Target section specifically for dark theme */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 40px 20px;
+    /* background-color: #f9f9f9; */ /* Removed light background */
+    color: #e0e0e0; /* Light gray default text color for dark background */
+    line-height: 1.6;
+  }
+  /* Visually Hidden Class for Accessibility */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  /* Section Title */
+  .reviews-section.dark-theme .reviews-title {
+    text-align: center;
+    font-size: 2em; /* Responsive font size */
+    margin-bottom: 30px;
+    color: #ffffff; /* White title */
+  }
+   /* Optional Average Rating */
+  .reviews-section.dark-theme .average-rating {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: #cccccc; /* Lighter gray for average text */
+  }
+  .reviews-section.dark-theme .average-rating span {
+      color: #f5b301; /* Gold color for stars */
+      font-size: 1.2em;
+      margin-left: 5px;
+  }
+  /* Reviews Grid */
+  .reviews-section.dark-theme .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  /* Individual Review Card */
+  .reviews-section.dark-theme .review-card {
+    background-color: #252525; /* Dark gray card background */
+    border: 1px solid #444444; /* Slightly lighter border for definition */
+    border-radius: 8px;
+    padding: 20px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); */ /* Shadow less effective on dark */
+    display: flex;
+    flex-direction: column;
+  }
+  /* Review Header */
+  .reviews-section.dark-theme .review-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444444; /* Darker divider */
+    gap: 10px;
+  }
+  .reviews-section.dark-theme .reviewer-name {
+    font-weight: bold;
+    color: #ffffff; /* White name */
+    font-size: 1.1em;
+  }
+  .reviews-section.dark-theme .review-rating {
+    color: #f5b301; /* Gold color for stars - still works */
+    font-size: 1.1em;
+    flex-shrink: 0;
+  }
+  .reviews-section.dark-theme .review-date {
+    font-size: 0.9em;
+    color: #aaaaaa; /* Lighter gray for date */
+    flex-shrink: 0;
+  }
+  /* Review Body */
+  .reviews-section.dark-theme .review-body {
+    margin-bottom: 15px;
+    flex-grow: 1;
+    /* Text color inherited from .reviews-section.dark-theme (#e0e0e0) */
+  }
+  .reviews-section.dark-theme .review-body p {
+    margin: 0;
+  }
+  .reviews-section.dark-theme .original-language-link {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.85em;
+      color: #aaaaaa; /* Lighter gray */
+      font-style: italic;
+  }
+  /* Review Footer */
+  .reviews-section.dark-theme .review-footer {
+    font-size: 0.9em;
+    color: #aaaaaa; /* Lighter gray for footer text */
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid #444444; /* Darker divider */
+  }
+  /* Responsive Adjustments (Optional Fine-tuning) */
+  @media screen and (max-width: 400px) {
+    .reviews-section.dark-theme .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+     .reviews-section.dark-theme .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+     }
+     .reviews-section.dark-theme .reviews-title {
+         font-size: 1.6em;
+     }
+  } </style>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-container-align-center u-container-align-center-md u-container-align-center-sm u-container-align-center-xs u-container-align-center-xxl u-section-12" id="sec-a4b0">
       <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-valign-middle-xxl u-valign-top-xl u-sheet-1">
         <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
           <section style="color: white; padding: 60px 20px; font-family: 'Open Sans', sans-serif;">
@@ -608,7 +789,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
               <div style="text-align: center;">
                 <div style="font-size: 50px;">📏</div>
                 <h3 style="font-size: 20px; margin: 10px 0;">Step 3: Size Check</h3>
-                <p style="font-size: 14px; line-height: 1.6;"> We check your model to ensure it fits our printer’s max size: <strong>430 × 430 x 498 mm</strong>. We’ll contact you if adjustments are needed. 
+                <p style="font-size: 14px; line-height: 1.6;"> We check your model to ensure it fits our printer’s max size: <strong>430 × 430 x 500 mm</strong>. We’ll contact you if adjustments are needed. 
                 </p>
               </div>
               <div style="width: 20px; height: 20px; border-top: 2px solid white; border-right: 2px solid white; transform: rotate(135deg); margin: 10px 0;"></div>
@@ -629,7 +810,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         </div>
       </div>
       <style data-mode="XXL">@media (max-width: 0px) {
-  .u-section-10 .u-sheet-1 {
+  .u-section-12 .u-sheet-1 {
     min-height: 867px;
   }
   .u-block-bd7f-48 {
@@ -667,7 +848,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
     margin-bottom: 0;
     margin-left: 0;
   }
-  .u-section-10 .u-custom-html-1 {
+  .u-section-12 .u-custom-html-1 {
     grid-template-rows: repeat(2, auto);
     width: 750px;
     margin-top: -526px;
@@ -828,7 +1009,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
   }
 }</style>
     </section>
-    <section class="u-clearfix u-grey-90 u-section-12" id="block-2">
+    <section class="u-clearfix u-grey-90 u-section-14" id="block-2">
       <div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-align-center u-text u-text-default u-text-1">READY TO GET STARTED?</p>
         <p class="u-align-center u-text u-text-default u-text-2">Book a <span style="font-weight: 700;">FREE</span> meeting with us - let's bring your idea to life.
@@ -874,7 +1055,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
             <div class="footer-email-link">
               <a href="mailto:big3dprints@outlook.com">big3dprints@outlook.com</a>
             </div>
-            <div class="footer-sponsorship"> Sponsored by <img src="https://i.postimg.cc/J7G6nQdT/otechuni.png" alt="Ontario Tech University logo">
+            <div class="footer-sponsorship"> Sponsored by <img src="https://i.postimg.cc/dVgtpcvz/ontariotechu-og-image.png" alt="Ontario Tech University logo">
             </div>
           </footer>
           <style> .site-footer {

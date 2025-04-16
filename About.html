@@ -9,12 +9,19 @@
 <link rel="stylesheet" href="About.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-    <meta name="generator" content="Nicepage 7.6.4, nicepage.com">
-    
-    
-    
-    
+    <meta name="generator" content="Nicepage 7.7.3, nicepage.com">
+
+
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+    <style>
+      /* Attempt to disable Lenis smooth scrolling effects by forcing native scroll */
+      html, body {
+          overflow: auto !important;
+          overflow-y: auto !important; /* Be explicit */
+          height: auto !important;
+      }
+    </style>
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -106,17 +113,20 @@
       </div>
     </section>
     <section class="u-clearfix u-container-align-center u-gradient u-section-3" id="sec-eebc">
-      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+      <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
-          <style> /* --- Overlap Fix Attempt (From Embed 1) --- */
-  /* Target the parent Nicepage section and sheet using classes found in the full HTML */
-  /* Apply THIS embed inside a section with ID "sec-eebc" that has class "u-section-3" */
-  .u-section-3#sec-eebc,
-  .u-section-3#sec-eebc > .u-sheet {
-      height: auto !important; /* Override fixed height */
-      min-height: fit-content !important; /* Try to force container to wrap content */
-      /* overflow: visible !important; /* Let content determine size */
+         <style>
+  /* --- Overlap Fix Attempt (Targeting Wrapper - Revised) --- */
+  /* Applying overrides to Section, Sheet, AND Custom HTML Wrapper */
+  /* These selectors are confirmed to match your structure */
+  .u-section-3#sec-eebc,                          /* Section */
+  .u-section-3#sec-eebc > .u-sheet-1,             /* Sheet inside Section */
+  .u-section-3#sec-eebc > .u-sheet-1 > .u-custom-html-1 { /* Custom HTML div inside Sheet */
+      height: auto !important;                 /* Let height grow */
+      min-height: fit-content !important;      /* Minimum height based on content */
+      overflow: visible !important;            /* Make sure nothing inside is clipped */
   }
+
   /* Ensure the timeline div itself tries to contain content */
   .timeline {
     position: relative;
@@ -125,10 +135,11 @@
     padding: 60px 20px 40px;
     color: white;
     font-family: 'Open Sans', sans-serif;
-    overflow: hidden; /* Add overflow hidden HERE */
+    overflow: hidden; /* Keep this for internal effects (clipping transitions) */
     min-height: 300px; /* Ensure it has some base height */
   }
-    /* --- End Overlap Fix Attempt --- */
+  /* --- End Overlap Fix Attempt --- */
+
   /* --- Styles from Embed 1 (Timeline) --- */
   /* Gradient background line */
   .timeline::after {
@@ -202,6 +213,7 @@
   .timeline-item.right::before { left: -8px; }
   .timeline-item.left { left: 0; }
   .timeline-item.right { left: 50%; }
+
   #timeline-conclusion {
     text-align: center; margin-top: 50px; padding: 20px;
     opacity: 0; max-height: 0; overflow: hidden;
@@ -212,6 +224,7 @@
   #timeline-conclusion.visible {
     opacity: 1; max-height: 100px; margin-top: 50px;
   }
+
   /* --- Styles from Embed 2 (Difference Section) --- */
   .difference-section {
     padding: 60px 20px;
@@ -241,7 +254,8 @@
     transition: all 0.3s ease;
   }
   .difference-item:hover {
-    box-shadow: 0 0 20px rgba(0, 204, 255, 0.15);
+    /* Brighter Glow */
+    box-shadow: 0 0 25px rgba(0, 204, 255, 0.35); /* UPDATED */
     transform: translateY(-4px);
   }
   .difference-icon {
@@ -256,6 +270,7 @@
     font-size: 14px;
     line-height: 1.6;
   }
+
   /* --- Styles from Embed 3 (Materials Section) --- */
   .materials-section {
     padding: 0 20px 60px; /* Remove top padding, keep bottom/sides */
@@ -266,7 +281,8 @@
   .materials-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Keep flex-start */
+    /* align-items: flex-start; */ /* Removed */
+    align-items: stretch;      /* ADDED for equal height */
     max-width: 1000px;
     margin: 0 auto; /* Centering */
     padding-top: 60px; /* Add padding above cards */
@@ -275,7 +291,7 @@
     gap: 60px; /* Gap between cards */
   }
   .material-wrapper {
-    display: flex;
+    display: flex; /* Already flex, good */
     flex-direction: column;
     flex-grow: 0;
     flex-shrink: 1;
@@ -290,7 +306,8 @@
     z-index: 2;
   }
   .material-wrapper:hover {
-    box-shadow: 0 0 20px rgba(0, 204, 255, 0.15);
+     /* Brighter Glow */
+    box-shadow: 0 0 25px rgba(0, 204, 255, 0.35); /* UPDATED */
     transform: translateY(-4px);
   }
   .material {
@@ -300,7 +317,7 @@
     background: transparent;
     display: flex;
     flex-direction: column;
-    /* Removed height: 100% to let content dictate size */
+    flex-grow: 1; /* ADDED to allow inner div to fill wrapper */
   }
   .material h3 {
     font-size: 24px;
@@ -336,23 +353,24 @@
     /* Color is inherited from ul */
   }
   /* End List Styles */
+
   /* --- Media Queries --- */
   @media screen and (max-width: 768px) {
     /* Timeline Mobile Adjustments */
     .timeline::after,
     .timeline-fill-line {
-      display: none; /* Hide the central lines on mobile */
+      display: none;
     }
     .timeline-item {
       width: 100%;
-      padding-left: 20px; /* Reduced padding as line/dot space is gone */
+      padding-left: 20px;
       padding-right: 10px;
       margin-bottom: 10px;
     }
     .timeline-item.right,
     .timeline-item.left { left: 0; text-align: left; }
     .timeline-item::before {
-      display: none; /* Hide the dots on mobile */
+      display: none;
     }
     .timeline-item.revealed .details { transition-delay: 0s; }
     .timeline-item .content h4,
@@ -360,6 +378,7 @@
     .timeline-item .content h4::after { margin-left: 0; margin-right: auto; width: 60px;}
     .timeline-item .details img { width: 100%; max-width: 100%; margin-left: 0; margin-right: 0; }
     #timeline-conclusion { font-size: 18px; margin-top: 30px;}
+
     /* Difference Section Mobile Adjustments */
     .difference-grid {
       flex-direction: column;
@@ -369,166 +388,85 @@
       width: 100%;
       max-width: 300px;
     }
+
     /* Materials Section Mobile Adjustments */
     .materials-container {
       flex-direction: column;
-      align-items: center;
-      gap: 30px; /* Vertical gap on mobile */
-      padding-top: 40px; /* Adjust mobile top padding */
+      align-items: center; /* Keep centered on mobile */
+      /* align-items: stretch; */ /* Reset stretch for mobile columns if needed */
+      gap: 30px;
+      padding-top: 40px;
     }
     .material-wrapper {
       width: 100%;
-      max-width: 450px; /* Limit width even on mobile */
+      max-width: 450px;
       margin-bottom: 0;
     }
+     .material {
+       /* flex-grow: 0; */ /* Optional: Reset flex-grow if height varies too much on mobile */
+     }
     .material ul {
-       padding-left: 20px;
+        padding-left: 20px;
     }
     .material img {
-       max-height: 420px; /* Mobile max height */
+        max-height: 420px; /* Mobile max height */
     }
      .material h3 {
-       /* Optional: Adjust heading size/margin for mobile */
+        /* Optional: Adjust heading size/margin for mobile */
      }
-  } </style>
-          <div class="timeline">
-            <div class="timeline-fill-line"></div>
-            <div class="left timeline-item" role="button" tabindex="0">
-              <div class="content">
-                <h4>Workshop 1.0 <span class="timeline-date">(June 2022)</span>
-                </h4>
-                <div class="details">
-                  <img src="https://i.postimg.cc/kXtGsG9k/workshop1.jpg" alt="Workshop 1.0 with first printer">
-                  <p>Initial setup featuring our first 3D printer.</p>
-                </div>
-              </div>
-            </div>
-            <div class="right timeline-item" role="button" tabindex="0">
-              <div class="content">
-                <h4>Remote Viewing Setup <span class="timeline-date">(March 2023)</span>
-                </h4>
-                <div class="details">
-                  <img src="https://i.postimg.cc/9QC4fV5K/camera1box2.jpg" alt="First webcam viewing printer">
-                  <p>Installed the first webcam support for remote print monitoring.</p>
-                </div>
-              </div>
-            </div>
-            <div class="left timeline-item" role="button" tabindex="0">
-              <div class="content">
-                <h4>First Multi-Day Print <span class="timeline-date">(August 2023)</span>
-                </h4>
-                <div class="details">
-                  <img src="https://i.postimg.cc/0NShHgr5/2dayprint.jpg" alt="Large multi-day 3D print">
-                  <p>Successfully completed a large, multi-day print, proving system stability.</p>
-                </div>
-              </div>
-            </div>
-            <div class="right timeline-item" role="button" tabindex="0">
-              <div class="content">
-                <h4>Second Printer Added <span class="timeline-date">(December 2023)</span>
-                </h4>
-                <div class="details">
-                  <img src="https://i.postimg.cc/pLbfYgNJ/printer2.jpg" alt="Second 3D printer installed">
-                  <p>Expanded capacity with a second printer to handle two orders simultaneously.</p>
-                </div>
-              </div>
-            </div>
-            <div class="left timeline-item" role="button" tabindex="0">
-              <div class="content">
-                <h4>Third Printer Added <span class="timeline-date">(June 2024)</span>
-                </h4>
-                <div class="details">
-                  <img src="https://i.postimg.cc/T3cXRvfk/printer3.jpg" alt="Third 3D printer installed">
-                  <p>Further expansion bringing a third printer online.</p>
-                </div>
-              </div>
-            </div>
-            <div class="right timeline-item" role="button" tabindex="0">
-              <div class="content">
-                <h4>AI Failure Detection <span class="timeline-date">(September 2024)</span>
-                </h4>
-                <div class="details">
-                  <img src="https://i.postimg.cc/7ZhNLgyp/webcam2.jpg" alt="Webcam with AI detection interface">
-                  <p>Upgraded webcam monitoring with AI object detection for print failures.</p>
-                </div>
-              </div>
-            </div>
-            <div class="left timeline-item" role="button" tabindex="0">
-              <div class="content">
-                <h4>First Multi-Color Print <span class="timeline-date">(September 2024)</span>
-                </h4>
-                <div class="details">
-                  <img src="https://i.postimg.cc/X7Cj6Prh/multicolor-1.jpg" alt="First multi-color 3D print">
-                  <p>Achieved successful multi-color 3D printing capabilities.</p>
-                </div>
-              </div>
-            </div>
-            <div class="right timeline-item" role="button" tabindex="0">
-              <div class="content">
-                <h4>Custom Firmware Mods <span class="timeline-date">(November 2024)</span>
-                </h4>
-                <div class="details">
-                  <img src="https://i.postimg.cc/Qtd76Dxv/firmware.jpg" alt="Printer interface showing custom firmware">
-                  <p>Enhanced printer capabilities and features by installing custom firmware.</p>
-                </div>
-              </div>
-            </div>
-            <div class="left timeline-item" role="button" tabindex="0">
-              <div class="content">
-                <h4>Oldham Coupler Upgrade <span class="timeline-date">(November 2024)</span>
-                </h4>
-                <div class="details">
-                  <img src="https://i.postimg.cc/4y5Nj7L5/height-fix.jpg" alt="Oldham couplers installed on printer Z-axis">
-                  <p>Improved stability and speed for taller prints by replacing stock couplers.</p>
-                </div>
-              </div>
-            </div>
-            <div class="right timeline-item" role="button" tabindex="0">
-              <div class="content">
-                <h4>Workshop 2.0 <span class="timeline-date">(January 2025)</span>
-                </h4>
-                <div class="details">
-                  <img src="https://i.postimg.cc/SsHvqD5Q/final-image.jpg" alt="Current upgraded workshop view">
-                  <p>Showcasing the current, upgraded workshop setup.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="timeline-conclusion"> Always Innovating... More Milestones Ahead! </div>
-          <div class="difference-section">
-            <h2>What Makes Us Different</h2>
-            <div class="difference-grid">
-              <div class="difference-item">
-                <div class="difference-icon">✏️</div>
-                <h4>From Hobby to High Standards</h4>
-                <p> What began as a personal passion has evolved into a serious service. I bring the same excitement from day one — with professional-level care and attention. </p>
-              </div>
-              <div class="difference-item">
-                <div class="difference-icon">🤝</div>
-                <h4>1-on-1 Support</h4>
-                <p> You won’t talk to bots — you’ll talk to me. I’m always here to answer, adjust, and make sure you're heard. </p>
-              </div>
-              <div class="difference-item">
-                <div class="difference-icon">✅</div>
-                <h4>Client Satisfaction First</h4>
-                <p> I don’t close projects with unhappy clients. I’ll make it right — that’s my promise. </p>
-              </div>
-              <div class="difference-item">
-                <div class="difference-icon">🕒</div>
-                <h4>Honest Timelines</h4>
-                <p> No guessing games. If there’s a delay, I’ll let you know early — and we’ll figure it out together. </p>
-              </div>
-            </div>
-          </div>
-          <section style="text-align: center; padding: 80px 20px 40px; color: white; font-family: 'Open Sans', sans-serif;">
-            <h2 style="font-size: 26px; text-transform: uppercase; margin-bottom: 14px; letter-spacing: 2px;"> Our 3D Printing Materials </h2>
-            <div style="height: 1px; width: 160px; margin: 0 auto; background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);"></div>
-          </section>
-          <div class="materials-container">
-            <div class="material-wrapper">
+  }
+         </style>
+
+         <div class="timeline">
+           <div class="timeline-fill-line"></div>
+           <div class="left timeline-item" role="button" tabindex="0"> <div class="content"> <h4>Workshop 1.0 <span class="timeline-date">(June 2022)</span></h4> <div class="details"> <img src="https://i.postimg.cc/kXtGsG9k/workshop1.jpg" alt="Workshop 1.0 with first printer"> <p>Initial setup featuring our first 3D printer.</p> </div> </div> </div>
+           <div class="right timeline-item" role="button" tabindex="0"> <div class="content"> <h4>Remote Viewing Setup <span class="timeline-date">(March 2023)</span></h4> <div class="details"> <img src="https://i.postimg.cc/9QC4fV5K/camera1box2.jpg" alt="First webcam viewing printer"> <p>Installed the first webcam support for remote print monitoring.</p> </div> </div> </div>
+           <div class="left timeline-item" role="button" tabindex="0"> <div class="content"> <h4>First Multi-Day Print <span class="timeline-date">(August 2023)</span></h4> <div class="details"> <img src="https://i.postimg.cc/0NShHgr5/2dayprint.jpg" alt="Large multi-day 3D print"> <p>Successfully completed a large, multi-day print, proving system stability.</p> </div> </div> </div>
+           <div class="right timeline-item" role="button" tabindex="0"> <div class="content"> <h4>Second Printer Added <span class="timeline-date">(December 2023)</span></h4> <div class="details"> <img src="https://i.postimg.cc/pLbfYgNJ/printer2.jpg" alt="Second 3D printer installed"> <p>Expanded capacity with a second printer to handle two orders simultaneously.</p> </div> </div> </div>
+           <div class="left timeline-item" role="button" tabindex="0"> <div class="content"> <h4>Third Printer Added <span class="timeline-date">(June 2024)</span></h4> <div class="details"> <img src="https://i.postimg.cc/T3cXRvfk/printer3.jpg" alt="Third 3D printer installed"> <p>Further expansion bringing a third printer online.</p> </div> </div> </div>
+           <div class="right timeline-item" role="button" tabindex="0"> <div class="content"> <h4>AI Failure Detection <span class="timeline-date">(September 2024)</span></h4> <div class="details"> <img src="https://i.postimg.cc/7ZhNLgyp/webcam2.jpg" alt="Webcam with AI detection interface"> <p>Upgraded webcam monitoring with AI object detection for print failures.</p> </div> </div> </div>
+           <div class="left timeline-item" role="button" tabindex="0"> <div class="content"> <h4>Custom Firmware Mods <span class="timeline-date">(November 2024)</span></h4> <div class="details"> <img src="https://i.postimg.cc/Qtd76Dxv/firmware.jpg" alt="Printer interface showing custom firmware"> <p>Enhanced printer capabilities and features by installing custom firmware.</p> </div> </div> </div>
+           <div class="right timeline-item" role="button" tabindex="0"> <div class="content"> <h4>Oldham Coupler Upgrade <span class="timeline-date">(November 2024)</span></h4> <div class="details"> <img src="https://i.postimg.cc/4y5Nj7L5/height-fix.jpg" alt="Oldham couplers installed on printer Z-axis"> <p>Improved stability and speed for taller prints by replacing stock couplers.</p> </div> </div> </div>
+           <div class="left timeline-item" role="button" tabindex="0"> <div class="content"> <h4>Workshop 5.0 <span class="timeline-date">(January 2025)</span></h4> <div class="details"> <img src="https://i.postimg.cc/SsHvqD5Q/final-image.jpg" alt="Current upgraded workshop view"> <p>Showcasing the current, upgraded workshop setup.</p> </div> </div> </div>
+         </div>
+         <div id="timeline-conclusion"> Always Innovating... More Milestones Ahead! </div>
+
+         <div class="difference-section">
+           <h2>What Makes Us Different</h2>
+           <div class="difference-grid">
+             <div class="difference-item">
+               <div class="difference-icon">✏️</div>
+               <h4>From Hobby to High Standards</h4>
+               <p> What began as a personal passion has evolved into a serious service. I bring the same excitement from day one — with professional-level care and attention. </p>
+             </div>
+             <div class="difference-item">
+               <div class="difference-icon">🤝</div>
+               <h4>1-on-1 Support</h4>
+               <p> You won’t talk to bots — you’ll talk to me. I’m always here to answer, adjust, and make sure you're heard. </p>
+             </div>
+             <div class="difference-item">
+               <div class="difference-icon">✅</div>
+               <h4>Client Satisfaction First</h4>
+               <p> I don’t close projects with unhappy clients. I’ll make it right — that’s my promise. </p>
+             </div>
+             <div class="difference-item">
+               <div class="difference-icon">🕒</div>
+               <h4>Honest Timelines</h4>
+               <p> No guessing games. If there’s a delay, I’ll let you know early — and we’ll figure it out together. </p>
+             </div>
+           </div>
+         </div>
+
+         <section style="text-align: center; padding: 80px 20px 40px; color: white; font-family: 'Open Sans', sans-serif;">
+           <h2 style="font-size: 26px; text-transform: uppercase; margin-bottom: 14px; letter-spacing: 2px;"> Our 3D Printing Materials </h2>
+           <div style="height: 1px; width: 160px; margin: 0 auto; background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);"></div>
+         </section>
+
+         <div class="materials-container">
+           <div class="material-wrapper">
               <div class="material">
                 <h3>PETG</h3>
-                <img src="https://i.postimg.cc/1tZmttyB/PETG2.png" alt="PETG 3D printing material sample">
+                <img src="https://i.postimg.cc/ydd9jzT2/Chat-GPT-Image-Apr-16-2025-06-47-00-PM.png" alt="PETG 3D printing material sample">
                 <ul>
                   <li>Stronger, more durable, and more impact-resistant than PLA.</li>
                   <li>Excellent chemical resistance and less brittle nature.</li>
@@ -540,7 +478,7 @@
             <div class="material-wrapper">
               <div class="material">
                 <h3>PLA</h3>
-                <img src="https://i.postimg.cc/BnkZrpyd/PLA2.png" alt="PLA 3D printing material sample">
+                 <img src="https://i.postimg.cc/zB07DjdY/Apr-16-2025-06-46-58-PM.png" alt="PLA 3D printing material sample">
                 <ul>
                   <li>Easy to print with a smooth finish; great for beginners.</li>
                   <li>Biodegradable and available in many colors/finishes.</li>
@@ -549,215 +487,109 @@
                 </ul>
               </div>
             </div>
-          </div>
-          <section style="text-align: center; padding: 80px 20px; color: white; font-family: 'Open Sans', sans-serif;">
-            <h2 style="font-size: 28px; text-transform: uppercase; margin-bottom: 20px;">Let’s Build Something Together</h2>
-            <p style="font-size: 16px; max-width: 600px; margin: 0 auto 40px;"> Whether you have a sketch, a file, or just an idea — I’m here to bring it to life. I work one-on-one with you to make sure every layer of your print is done right. </p>
-            <div style="font-size: 14px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; padding: 12px 28px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 0 16px rgba(0,204,255,0.2)'; this.style.transform='translateY(-2px)';" onclick="window.location.href='Contact.html'" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';"> Contact Us </div>
-          </section>
-          <script> document.addEventListener('DOMContentLoaded', () => {
-    const timeline = document.querySelector('.timeline');
-    if (timeline) {
-      const items = Array.from(timeline.querySelectorAll('.timeline-item'));
-      const fillLine = timeline.querySelector('.timeline-fill-line');
-      const conclusion = document.getElementById('timeline-conclusion');
-      let updateTimer = null;
-      function updateTimelineProgress() {
-        // Only update progress if not on mobile (where line is hidden)
-        if (window.innerWidth > 768) {
-            const revealedItems = items.filter(item => item.classList.contains('revealed'));
-            let maxHeight = 0;
-            if (revealedItems.length > 0) {
-              const lastRevealedItem = revealedItems[revealedItems.length - 1];
-              // Calculate center based on top offset + half the item's actual height
-              const centerOffset = lastRevealedItem.offsetTop + (lastRevealedItem.offsetHeight / 2);
-              maxHeight = centerOffset;
-            }
-            if(fillLine) { fillLine.style.height = `${maxHeight}px`; }
-        } else {
-            // Ensure line height is 0 on mobile if it was previously set
-            if(fillLine) { fillLine.style.height = `0px`; }
-        }
-      }
-      function revealTimelineItems(clickedIndex) {
-        let revealOccurred = false;
-        let isLastItemRevealed = false;
-        items.forEach((item, index) => {
-          if (index <= clickedIndex) {
-            if (!item.classList.contains('revealed')) {
-              item.classList.add('revealed');
-              revealOccurred = true;
-              if (index === items.length - 1) { // Check if the *just revealed* item is the last one
-                isLastItemRevealed = true;
-              }
-            } else if (index === clickedIndex && index === items.length - 1) {
-                // Also consider the case where the clicked item is the last one and *already* revealed
-                isLastItemRevealed = true;
-            }
-          }
-        });
-        if (revealOccurred) {
-            // Update progress immediately after adding class (will check screen width inside)
-            updateTimelineProgress();
-            // Set a timer to potentially recalculate after transitions complete (details expanding)
-            if (updateTimer) clearTimeout(updateTimer);
-            // The timeout duration should match or slightly exceed the longest transition (details is 0.9s)
-            updateTimer = setTimeout(updateTimelineProgress, 950);
-        }
-        // Show conclusion if the last item is revealed (either newly or previously)
-        if (isLastItemRevealed && conclusion) {
-            conclusion.classList.add('visible');
-        }
-      }
-      items.forEach((item, index) => {
-        item.addEventListener('click', () => {
-          revealTimelineItems(index);
-        });
-        // Add keyboard accessibility
-        item.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault(); // Prevent space bar from scrolling
-            revealTimelineItems(index);
-          }
-        });
-      });
-      // Initial update on load
-      updateTimelineProgress();
-      // Add resize listener to update progress line visibility/height
-      window.addEventListener('resize', () => {
-          // Debounce resize updates slightly
-          if (updateTimer) clearTimeout(updateTimer);
-          updateTimer = setTimeout(updateTimelineProgress, 100);
-      });
-    } else {
-      console.error("Timeline element not found.");
-    }
-  }); </script>
-        </div>
+         </div>
+
+         <section style="text-align: center; padding: 80px 20px; color: white; font-family: 'Open Sans', sans-serif;">
+           <h2 style="font-size: 28px; text-transform: uppercase; margin-bottom: 20px;">Let’s Build Something Together</h2>
+           <p style="font-size: 16px; max-width: 600px; margin: 0 auto 40px;"> Whether you have a sketch, a file, or just an idea — I’m here to bring it to life. I work one-on-one with you to make sure every layer of your print is done right. </p>
+           <div style="font-size: 14px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; padding: 12px 28px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; cursor: pointer; transition: all 0.3s ease;" onclick="window.location.href='Contact.html'" onmouseover="this.style.boxShadow='0 0 16px rgba(0,204,255,0.2)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';"> Contact Us </div>
+         </section>
+
+         <script>
+           document.addEventListener('DOMContentLoaded', () => {
+             const timeline = document.querySelector('.timeline');
+             if (timeline) {
+               const items = Array.from(timeline.querySelectorAll('.timeline-item'));
+               const fillLine = timeline.querySelector('.timeline-fill-line');
+               const conclusion = document.getElementById('timeline-conclusion');
+               let updateTimer = null;
+
+               function updateTimelineProgress() {
+                 if (window.innerWidth > 768) {
+                     const revealedItems = items.filter(item => item.classList.contains('revealed'));
+                     let maxHeight = 0;
+                     if (revealedItems.length > 0) {
+                       const lastRevealedItem = revealedItems[revealedItems.length - 1];
+                       const centerOffset = lastRevealedItem.offsetTop + (lastRevealedItem.offsetHeight / 2);
+                       maxHeight = centerOffset;
+                     }
+                     if(fillLine) { fillLine.style.height = `${maxHeight}px`; }
+                 } else {
+                     if(fillLine) { fillLine.style.height = `0px`; }
+                 }
+               }
+
+               function revealTimelineItems(clickedIndex) {
+                 let revealOccurred = false;
+                 let isLastItemRevealed = false;
+                 items.forEach((item, index) => {
+                   if (index <= clickedIndex) {
+                     if (!item.classList.contains('revealed')) {
+                       item.classList.add('revealed');
+                       revealOccurred = true;
+                       if (index === items.length - 1) {
+                         isLastItemRevealed = true;
+                       }
+                     } else if (index === clickedIndex && index === items.length - 1) {
+                          isLastItemRevealed = true;
+                     }
+                   }
+                 });
+
+                 if (revealOccurred) {
+                     updateTimelineProgress();
+                     if (updateTimer) clearTimeout(updateTimer);
+                     updateTimer = setTimeout(() => {
+                         updateTimelineProgress(); // Re-update in case of minor layout shifts
+                         // Lenis resize attempt - KEEPING this just in case, but it likely failed
+                         if (window.lenis && typeof window.lenis.resize === 'function') {
+                             window.lenis.resize();
+                             console.log('Lenis resize attempted again.');
+                         } else {
+                             console.log('Lenis instance still not found on window.');
+                         }
+                     }, 950);
+                 }
+
+                 if (isLastItemRevealed && conclusion) {
+                     conclusion.classList.add('visible');
+                 }
+               }
+
+               items.forEach((item, index) => {
+                 item.addEventListener('click', () => { revealTimelineItems(index); });
+                 item.addEventListener('keydown', e => {
+                   if (e.key === 'Enter' || e.key === ' ') {
+                     e.preventDefault();
+                     revealTimelineItems(index);
+                   }
+                 });
+               });
+
+               updateTimelineProgress(); // Initial call
+
+               // Debounced resize handler (including Lenis resize attempt)
+               let resizeTimeout;
+               window.addEventListener('resize', () => {
+                 clearTimeout(resizeTimeout);
+                 resizeTimeout = setTimeout(() => {
+                    updateTimelineProgress();
+                    if (window.lenis && typeof window.lenis.resize === 'function') {
+                       window.lenis.resize();
+                    }
+                 }, 150);
+               });
+
+             } else {
+               console.error("Timeline element not found.");
+             }
+           });
+         </script>
+         </div>
       </div>
-      <style data-mode="XXL">@media (max-width: 0px) {
-  .u-section-3 .u-sheet-1 {
-    min-height: 855px;
-  }
-  .u-block-269e-20 {
-    width: 754px;
-    --animation-custom_in-translate_x: 0px;
-    --animation-custom_in-translate_y: 0px;
-    --animation-custom_in-opacity: 0;
-    --animation-custom_in-rotate: 0deg;
-    --animation-custom_in-scale: 0.3;
-    margin-top: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0;
-  }
-  .u-block-269e-3 {
-    margin-top: 60px;
-    margin-bottom: 60px;
-  }
-  .u-block-269e-8 {
-    min-height: 559px;
-    --animation-custom_in-translate_x: -300px;
-    --animation-custom_in-translate_y: 0px;
-    --animation-custom_in-opacity: 0;
-    --animation-custom_in-rotate: 0deg;
-    --animation-custom_in-scale: 1;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-image: url("images/handsome-man-cutting-beard-barber-4.jpg");
-    background-size: cover;
-  }
-  .u-block-269e-9 {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-  .u-block-269e-11 {
-    min-height: 559px;
-    --animation-custom_in-translate_x: 300px;
-    --animation-custom_in-translate_y: 0px;
-    --animation-custom_in-opacity: 0;
-    --animation-custom_in-rotate: 0deg;
-    --animation-custom_in-scale: 1;
-  }
-  .u-block-269e-12 {
-    padding-top: 30px;
-    padding-right: 0;
-    padding-bottom: 30px;
-    padding-left: 30px;
-  }
-  .u-block-269e-13 {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .u-block-269e-14 {
-    background-image: none;
-    font-size: 1.25rem;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .u-block-269e-15 {
-    font-size: 2.25rem;
-    margin-top: 20px;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-  .u-block-269e-16 {
-    width: 108px;
-    transform-origin: left center;
-    margin-top: 31px;
-    margin-right: auto;
-    margin-bottom: 0;
-    margin-left: 0;
-  }
-  .u-block-269e-17 {
-    font-size: 1.25rem;
-    margin-top: 30px;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-  .u-block-269e-18 {
-    font-style: italic;
-    margin-top: 55px;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-  .u-block-269e-19 {
-    background-image: none;
-    font-style: italic;
-    border-style: solid;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .u-section-3 .u-custom-html-1 {
-    width: 610px;
-    transform-origin: left center;
-    margin-top: 30px;
-    margin-right: 20px;
-    margin-bottom: 0;
-    margin-left: auto;
-  }
-  .u-block-269e-22 {
-    margin-top: 30px;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-}</style>
     </section>
-    
-    
-    
+
+
     <footer class="u-align-center u-black u-clearfix u-container-align-center u-footer u-footer" id="sec-a7cc"><div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
           <footer class="site-footer">
@@ -793,42 +625,42 @@
             <div class="footer-email-link">
               <a href="mailto:big3dprints@outlook.com">big3dprints@outlook.com</a>
             </div>
-            <div class="footer-sponsorship"> Sponsored by <img src="https://i.postimg.cc/J7G6nQdT/otechuni.png" alt="Ontario Tech University logo">
+            <div class="footer-sponsorship"> Sponsored by <img src="https://i.postimg.cc/dVgtpcvz/ontariotechu-og-image.png" alt="Ontario Tech University logo">
             </div>
           </footer>
           <style> .site-footer {
     background-color: #000000; /* Black background */
-    color: #ffffff;           /* White text */
-    padding: 50px 20px 40px;  /* Default padding (Desktop) */
+    color: #ffffff;             /* White text */
+    padding: 50px 20px 40px;   /* Default padding (Desktop) */
     font-family: 'Open Sans', sans-serif; /* Consistent font */
     overflow-x: hidden; /* Prevent horizontal scrollbar */
   }
 
   .footer-container {
-    max-width: 1000px;      /* Max width of footer content */
-    margin: 0 auto;         /* Center the container horizontally */
-    display: flex;          /* Use flexbox for columns */
-    flex-wrap: wrap;        /* Allow columns to wrap on smaller screens */
+    max-width: 1000px;     /* Max width of footer content */
+    margin: 0 auto;        /* Center the container horizontally */
+    display: flex;         /* Use flexbox for columns */
+    flex-wrap: wrap;       /* Allow columns to wrap on smaller screens */
     justify-content: center; /* Group columns in the center */
-    gap: 60px;              /* Space between centered columns (Desktop) */
-    position: relative;     /* Enable positioning */
-    left: 1vw;              /* Shift 1% of viewport width to the right (Desktop) */
+    gap: 60px;             /* Space between centered columns (Desktop) */
+    position: relative;    /* Enable positioning */
+    left: 1vw;             /* Shift 1% of viewport width to the right (Desktop) */
     padding-bottom: 30px; /* Space below columns before email/border (Desktop) */
   }
 
   .footer-column {
-    flex-grow: 0;           /* Prevent columns from growing */
-    min-width: 180px;       /* Minimum width before wrapping */
-    text-align: left;       /* Default text alignment (Desktop) */
-    margin-bottom: 20px;    /* Space below columns when stacked */
+    flex-grow: 0;          /* Prevent columns from growing */
+    min-width: 180px;      /* Minimum width before wrapping */
+    text-align: left;      /* Default text alignment (Desktop) */
+    margin-bottom: 20px;   /* Space below columns when stacked */
   }
 
   .footer-heading {
-    font-size: 18px;        /* Heading size */
-    font-weight: 600;       /* Semi-bold */
+    font-size: 18px;       /* Heading size */
+    font-weight: 600;      /* Semi-bold */
     margin-top: 0;
-    margin-bottom: 15px;    /* Consistent margin below heading+underline */
-    position: relative;     /* Needed for underline positioning */
+    margin-bottom: 15px;   /* Consistent margin below heading+underline */
+    position: relative;    /* Needed for underline positioning */
     display: inline-block; /* Size to content for underline & allows left-align (Desktop) */
     letter-spacing: 0.5px; /* Slight letter spacing */
   }
@@ -838,7 +670,7 @@
     position: absolute;
     left: 0;
     bottom: -8px; /* Position underline below text */
-    width: 100%;  /* Match width of the heading text */
+    width: 100%;   /* Match width of the heading text */
     height: 2px;
     background-color: #D50000;
     display: block;
@@ -855,10 +687,10 @@
   }
 
   .footer-links a {
-    color: #ffffff;         /* White link text */
+    color: #ffffff;        /* White link text */
     text-decoration: none; /* Remove default underline */
     font-size: 14px;
-    font-weight: bold;      /* Keep links bold */
+    font-weight: bold;     /* Keep links bold */
     transition: color 0.3s ease; /* Smooth color change on hover */
   }
 
@@ -867,17 +699,17 @@
   }
 
   .footer-email-link {
-    text-align: center;     /* Center the email link */
-    margin-top: 30px;       /* Space above the border/email (Desktop) */
-    padding-top: 30px;      /* Space between border and email (Desktop) */
+    text-align: center;      /* Center the email link */
+    margin-top: 30px;        /* Space above the border/email (Desktop) */
+    padding-top: 30px;       /* Space between border and email (Desktop) */
     border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
   }
 
   .footer-email-link a {
-    color: #cccccc;         /* Slightly dimmer color for email */
+    color: #cccccc;        /* Slightly dimmer color for email */
     text-decoration: none;
     font-size: 14px;
-    font-weight: normal;    /* Normal weight for email */
+    font-weight: normal;   /* Normal weight for email */
     transition: color 0.3s ease;
   }
 
@@ -905,7 +737,7 @@
   /* === Mobile Styles === */
   @media screen and (max-width: 600px) {
     .site-footer {
-       padding: 30px 20px 30px; /* Reduced padding for mobile */
+        padding: 30px 20px 30px; /* Reduced padding for mobile */
     }
 
     .footer-container {
@@ -957,5 +789,54 @@
   /* End Mobile Styles */ </style>
         </div>
       </div></footer>
-  
-</body></html>
+
+    <script>
+      // Debounce function
+      function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+          var context = this, args = arguments;
+          var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+        };
+      };
+
+      // Function to attempt Lenis destruction and style reset
+      var attemptLenisDestroy = debounce(function() {
+        if (window.lenis && typeof window.lenis.destroy === 'function') {
+          try {
+            window.lenis.destroy();
+            console.log('Lenis instance destroyed.');
+            // Cleanup styles and classes just in case destroy isn't complete
+            document.documentElement.classList.remove('lenis', 'lenis-smooth', 'lenis-scrolling');
+            document.body.classList.remove('lenis', 'lenis-smooth', 'lenis-scrolling');
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+            document.documentElement.style.height = '';
+            document.body.style.height = '';
+             // Force reflow maybe?
+             void document.body.offsetHeight;
+          } catch (e) {
+            console.error('Error destroying Lenis:', e);
+          }
+        } else {
+          console.log('Lenis instance (window.lenis) not found for destruction (final attempt).');
+        }
+      }, 250); // Debounced with 250ms wait
+
+      // Listen for DOMContentLoaded AND load, and call the debounced function
+      // These ensure we try after initial scripts likely run
+      document.addEventListener('DOMContentLoaded', attemptLenisDestroy);
+      window.addEventListener('load', attemptLenisDestroy);
+      // Also try after slightly longer delays in case initialization is slow
+      setTimeout(attemptLenisDestroy, 500);
+      setTimeout(attemptLenisDestroy, 1500);
+
+    </script>
+    </body></html>

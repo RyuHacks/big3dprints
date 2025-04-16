@@ -14,30 +14,6 @@
   height: auto;
   min-height: 511px;
   margin-top: 0;
-}
-
-.u-section-1 .embed-responsive-1 {
-  position: absolute;
-  width: 178%;
-  left: -39%;
-  height: 178%;
-  top: -39%;
-}
-
-@media (max-width: 767px) {
-  .u-section-1 .embed-responsive-1 {
-    width: 181%;
-    left: -41%;
-    height: 100%;
-    top: 0%;
-  }
-}
-
-@media (max-width: 575px) {
-  .u-section-1 .embed-responsive-1 {
-    width: 288%;
-    left: -94%;
-  }
 }.u-section-3 .u-sheet-1 {
   min-height: 531px;
 }
@@ -105,13 +81,13 @@
 
 .u-section-9 .u-image-1 {
   height: 374px;
-  width: 466px;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .u-section-9 .u-text-1 {
   font-weight: 700;
-  margin: 30px auto 0 0;
+  margin: 58px auto 0 0;
 }
 
 .u-section-9 .u-text-2 {
@@ -125,13 +101,13 @@
 .u-section-9 .u-image-2 {
   height: 374px;
   object-position: 50% 37.86%;
-  width: 466px;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .u-section-9 .u-text-3 {
   font-weight: 700;
-  margin: 30px auto 0 0;
+  margin: 58px auto 0 0;
 }
 
 .u-section-9 .u-text-4 {
@@ -144,13 +120,13 @@
 
 .u-section-9 .u-image-3 {
   height: 374px;
-  width: 466px;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .u-section-9 .u-text-5 {
   font-weight: 700;
-  margin: 30px auto 0 0;
+  margin: 58px auto 0 0;
 }
 
 .u-section-9 .u-text-6 {
@@ -163,13 +139,13 @@
 
 .u-section-9 .u-image-4 {
   height: 374px;
-  width: 466px;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .u-section-9 .u-text-7 {
   font-weight: 700;
-  margin: 30px auto 0 0;
+  margin: 58px auto 0 0;
 }
 
 .u-section-9 .u-text-8 {
@@ -304,50 +280,52 @@
 
   .u-section-9 .u-image-1 {
     height: 235px;
-    width: 320px;
   }
 
   .u-section-9 .u-image-2 {
     height: 235px;
-    width: 320px;
   }
 
   .u-section-9 .u-image-3 {
     height: 235px;
-    width: 320px;
   }
 
   .u-section-9 .u-image-4 {
     height: 235px;
-    width: 320px;
   }
 }.u-section-10 .u-sheet-1 {
-  min-height: 1643px;
+  min-height: 400px;
 }
 
 .u-section-10 .u-custom-html-1 {
   margin-bottom: 60px;
+}.u-section-12 .u-sheet-1 {
+  min-height: 1643px;
+}
+
+.u-section-12 .u-custom-html-1 {
+  margin-bottom: 60px;
   height: auto;
   min-height: 1583px;
   margin-top: 0;
-}.u-section-12 .u-sheet-1 {
+}.u-section-14 .u-sheet-1 {
   min-height: 430px;
 }
 
-.u-section-12 .u-text-1 {
+.u-section-14 .u-text-1 {
   font-size: 1.875rem;
   letter-spacing: 2px;
   font-weight: 700;
   margin: 60px auto 0;
 }
 
-.u-section-12 .u-text-2 {
+.u-section-14 .u-text-2 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0;
 }
 
-.u-section-12 .u-btn-1 {
+.u-section-14 .u-btn-1 {
   font-size: 1rem;
   letter-spacing: 0px;
   background-image: none;
