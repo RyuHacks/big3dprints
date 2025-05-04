@@ -2,7 +2,7 @@
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Contact Us, ​Welcome to the Best Barbershop in&nbsp;Manhattan, ​Get In Touch">
+    <meta name="keywords" content="Contact Us, ​Welcome to the Best Barbershop in Manhattan, ​Get In Touch">
     <meta name="description" content="">
     <title>Contact</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
@@ -10,12 +10,10 @@
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 7.7.3, nicepage.com">
-    
-    
-    
-    
-    
-    
+
+
+
+
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
@@ -121,22 +119,72 @@
               </div>
               <div class="contact-form-column">
                 <h2>Get In Touch</h2>
+
+                <!-- ****** NEW: QUOTATION TIMELINE NOTE ****** -->
+                <p class="quotation-note">
+                  Quotations will be done as soon as possible, usually on same day, if not within 3 days of initial request, assuming no preexisting issues with file, timeline, budget, and more.
+                </p>
+
                 <p>Tell us of your amazing 3D designs and it will come to life!</p>
-                <p class="form-notes"> Please note: We typically require more than a week for printing (same-week service is unavailable) and currently do not offer post-processing services like sanding or painting. </p>
-                <form class="contact-form" action="#" method="post" onsubmit="return false;">
+                <!-- ****** UPDATED FORM NOTES ****** -->
+                <p class="form-notes">
+                  Please note: We currently offer <strong>FDM printing only (no resin printing)</strong>. We typically require more than a week for printing (same-week service is unavailable) and currently do not offer post-processing services like sanding or painting.<br>
+                  <strong>For cosplay or scaling important parts, please specify if scaling is already done or needs to be done in the details section below!</strong>
+                </p>
+
+                <form class="contact-form"
+                      action="https://formspree.io/f/mwpooewd"
+                      method="POST"
+                      enctype="multipart/form-data">
+
+                  <!-- Form Fields -->
                   <div class="form-group">
                     <input type="text" id="name" name="name" placeholder="Enter your Name" required="">
                   </div>
                   <div class="form-group">
                     <input type="email" id="email" name="email" placeholder="Enter a valid email address" required="">
                   </div>
+
+                  <!-- Specs Field -->
                   <div class="form-group">
-                    <textarea id="message" name="message" rows="4" placeholder="Enter your message" required=""></textarea>
+                    <label for="specs" class="form-label">3D Printing Specs & Details:</label>
+                    <textarea id="specs" name="specs" rows="5"
+                              placeholder="Describe your project: intended use, size/dimensions, desired color/material, required strength, scaling notes (if any), etc. The more details you provide, the better we can assist!"
+                              required=""></textarea>
                   </div>
+
+                   <!-- ****** UPDATED: DEADLINE FIELD ****** -->
                   <div class="form-group">
-                    <label for="stlfile" class="file-label">Upload STL File (Optional):</label>
-                    <input type="file" id="stlfile" name="stlfile" accept=".stl,.obj,.3mf">
+                    <label for="deadline" class="form-label">Required Timeline (Approx.)</label>
+                    <select id="deadline" name="deadline" class="form-select" required> <!-- Added required -->
+                       <option value="">-- Please select an option --</option>
+                       <option value="2_weeks">Within 2 Weeks</option>
+                       <option value="3_weeks">Within 3 Weeks</option>
+                       <option value="flexible">No Specific Timeline (Flexible/Unknown)</option>
+                    </select>
+                   </div>
+
+                   <!-- Prior Experience Field -->
+                   <div class="form-group">
+                     <fieldset class="radio-group">
+                       <legend class="form-label">Have you used 3D printing services before?</legend>
+                       <div class="radio-option">
+                         <input type="radio" id="exp_yes" name="printing_experience" value="Yes" required>
+                         <label for="exp_yes">Yes</label>
+                       </div>
+                       <div class="radio-option">
+                         <input type="radio" id="exp_no" name="printing_experience" value="No">
+                         <label for="exp_no">No</label>
+                       </div>
+                     </fieldset>
+                   </div>
+
+                  <!-- File Upload Field -->
+                  <div class="form-group">
+                    <label for="stlfile" class="file-label">Upload Design File (.stl, .obj, .step, .blend - Optional, Max 10MB):</label>
+                    <input type="file" id="stlfile" name="stlfile" accept=".stl,.obj,.step,.blend">
                   </div>
+
                   <div class="form-group postal-group">
                     <input type="text" id="postal_code" name="postal_code" placeholder="Postal Code (e.g., A1A 1A1)" pattern="[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d" title="Enter a valid Canadian postal code (A1A 1A1) for shipping calculation."><span class="shipping-calc-label">(for shipping estimate)</span>
                   </div>
@@ -144,251 +192,397 @@
                     <input type="checkbox" id="social_share" name="social_share" value="yes">
                     <label for="social_share">May we feature photos/videos of your print (anonymously) on our social media?</label>
                   </div>
+
+                  <!-- Optional Formspree Fields -->
+                  <input type="hidden" name="_subject" value="New 3D Print Inquiry!">
+                  <input type="text" name="_gotcha" style="display:none !important"> <!-- Honeypot -->
+
+                  <!-- Submit Button -->
                   <div class="form-group">
-                    <button type="submit" class="submit-button">SUBMIT</button>
+                    <button type="submit" class="submit-button">SUBMIT INQUIRY</button>
                   </div>
                 </form>
+
               </div>
             </div>
           </section>
-          <style> .get-in-touch-section {
-    background-color: #000000; /* Black background */
-    color: #ffffff;
-    padding: 80px 20px;
-    font-family: 'Open Sans', sans-serif;
-  }
-  .get-in-touch-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
-    align-items: center; /* Vertically align items */
-    gap: 50px; /* Gap between image and form */
-  }
-  /* Image Column */
-  .contact-image-column {
-    flex: 1 1 45%; /* Takes up slightly less space */
-    min-width: 300px; /* Minimum width */
-    text-align: center; /* Center image if column is wider */
-  }
-  .contact-image {
-    max-width: 100%;
-    height: auto;
-    max-height: 500px; /* Limit image height */
-    object-fit: contain;
-  }
-  /* Form Column */
-  .contact-form-column {
-    flex: 1 1 50%; /* Takes up slightly more space */
-    min-width: 320px; /* Minimum width */
-    border: 2px solid #D50000; /* Red border */
-    border-radius: 10px;
-    padding: 35px 40px; /* Padding inside the border */
-  }
-  .contact-form-column h2 {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 30px; /* Slightly larger heading */
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .contact-form-column p { /* Style for the main intro paragraph */
-    text-align: center;
-    margin-bottom: 10px; /* Reduced bottom margin */
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-  }
-  /* Added style for the notes paragraph */
-  .contact-form-column .form-notes {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 35px; /* Space before form fields */
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.7); /* Slightly dimmer */
-    line-height: 1.5;
-    font-style: italic; /* Optional: make it stand out */
-  }
-  .contact-form .form-group {
-    margin-bottom: 30px; /* Space between form fields */
-  }
-  /* Styling for text inputs and textarea */
-  .contact-form input[type="text"],
-  .contact-form input[type="email"],
-  .contact-form textarea {
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #D50000; /* Red underline */
-    color: #ffffff;
-    padding: 12px 2px; /* Padding for text */
-    font-size: 16px;
-    font-family: 'Open Sans', sans-serif;
-    transition: border-color 0.3s ease;
-    box-sizing: border-box; /* Include padding in width calculation */
-  }
-  .contact-form input[type="text"]:focus,
-  .contact-form input[type="email"]:focus,
-  .contact-form textarea:focus {
-    outline: none;
-    border-bottom-color: #ffffff; /* White underline on focus */
-  }
-  /* Placeholder styling */
-  .contact-form ::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-    opacity: 1; /* Firefox */
-  }
-  .contact-form :-ms-input-placeholder { color: rgba(255, 255, 255, 0.6); } /* IE */
-  .contact-form ::-ms-input-placeholder { color: rgba(255, 255, 255, 0.6); } /* Edge */
-  .contact-form textarea {
-    resize: vertical; /* Allow vertical resize only */
-    min-height: 80px; /* Adjusted min height */
-  }
-  /* File Input Styling */
-  .contact-form .file-label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-  }
-  .contact-form input[type="file"] {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
-    /* Basic file input styling */
-  }
-  /* Style the button shown to user for file input */
-  .contact-form input[type="file"]::file-selector-button {
-      background-color: #333;
-      color: white;
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 6px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-      margin-right: 10px;
-   }
-   .contact-form input[type="file"]::file-selector-button:hover {
-       background-color: #444;
-   }
-   /* Added Postal Code Group Styling */
-   .postal-group {
-     display: flex;
-     align-items: baseline; /* Align input and text nicely */
-     gap: 10px;
-     flex-wrap: wrap; /* Allow wrapping on small screens */
-   }
-   .postal-group input[type="text"] {
-     flex: 1 1 180px; /* Allow input to grow but have a base size */
-     /* Ensure underline doesn't overlap label */
-     margin-bottom: 0;
-   }
-   .shipping-calc-label {
-     font-size: 13px;
-     color: rgba(255, 255, 255, 0.6);
-     white-space: nowrap;
-     flex-shrink: 0; /* Prevent label from shrinking too much */
-     padding-bottom: 5px; /* Align better with input baseline */
-   }
-   /* Added Checkbox Group Styling */
-   .checkbox-group {
-     display: flex;
-     align-items: center; /* Vertically center checkbox and label */
-     gap: 10px;
-     margin-bottom: 25px; /* Adjust spacing */
-   }
-   .checkbox-group input[type="checkbox"] {
-     width: auto; /* Let checkbox size naturally */
-     margin: 0; /* Reset margin */
-     flex-shrink: 0; /* Prevent checkbox from shrinking */
-     appearance: none; /* Remove default */
-     background-color: transparent;
-     border: 1px solid #D50000;
-     width: 16px;
-     height: 16px;
-     border-radius: 3px;
-     cursor: pointer;
-     position: relative;
-     display: inline-block;
-   }
-   .checkbox-group input[type="checkbox"]:checked {
-      background-color: #D50000; /* Red check background */
-      border-color: #D50000;
-   }
-    /* Add checkmark using pseudo-element */
-   .checkbox-group input[type="checkbox"]:checked::after {
-      content: '';
-      position: absolute;
-      left: 4px;
-      top: 1px;
-      width: 4px;
-      height: 8px;
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-    }
-   .checkbox-group label {
-     font-size: 14px;
-     color: rgba(255, 255, 255, 0.8);
-     cursor: pointer;
-     line-height: 1.4;
-     margin: 0; /* Reset margin */
-   }
-  /* Submit Button Styling */
-  .contact-form .submit-button {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    background-color: #D50000; /* Red background */
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1.5px; /* Increased letter spacing */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 10px; /* Adjust top margin */
-  }
-  .contact-form .submit-button:hover {
-    background-color: #B71C1C; /* Darker red */
-    transform: translateY(-2px); /* Slight lift effect */
-  }
-  /* Responsive Adjustments */
-  @media screen and (max-width: 768px) {
-    .get-in-touch-container {
-      gap: 30px; /* Reduce gap when stacked */
-    }
-    .contact-image-column,
-    .contact-form-column {
-      flex-basis: 100%; /* Make columns full width */
-      max-width: 500px; /* Optional: Limit form width */
-      margin: 0 auto; /* Center stacked columns */
-    }
-     .contact-form-column {
-        padding: 30px 25px; /* Adjust padding for mobile */
-     }
-     .contact-form-column h2 { font-size: 26px; }
-     .contact-form-column p, .contact-form-column .form-notes { font-size: 14px; } /* Adjust notes size too */
-     /* Ensure postal group wraps cleanly */
-     .postal-group input[type="text"] {
-        flex-basis: 100%; /* Make input take full width */
-     }
-     .shipping-calc-label {
-        padding-bottom: 0; /* Reset padding adjustment */
-        width: 100%; /* Take full width */
-        text-align: right; /* Align label text to right */
-        margin-top: -5px; /* Pull up slightly */
-     }
-     .checkbox-group {
-       align-items: flex-start; /* Align checkbox to top */
-     }
-     .checkbox-group label {
-       flex: 1; /* Allow label to wrap */
-     }
-  } </style>
+          <!-- ****** ADDED/UPDATED CSS ****** -->
+          <style>
+            .get-in-touch-section {
+              background-color: #000000; /* Black background */
+              color: #ffffff;
+              padding: 80px 20px;
+              font-family: 'Open Sans', sans-serif;
+            }
+            .get-in-touch-container {
+              max-width: 1100px;
+              margin: 0 auto;
+              display: flex;
+              flex-wrap: wrap; /* Allow wrapping */
+              align-items: flex-start; /* Align items to top */
+              gap: 50px; /* Gap between image and form */
+            }
+            /* Image Column */
+            .contact-image-column {
+              flex: 1 1 45%; /* Takes up slightly less space */
+              min-width: 300px; /* Minimum width */
+              text-align: center; /* Center image if column is wider */
+              position: sticky; /* Make image sticky if form is long */
+              top: 100px; /* Adjust top position when sticky */
+            }
+            .contact-image {
+              max-width: 100%;
+              height: auto;
+              max-height: 500px; /* Limit image height */
+              object-fit: contain;
+            }
+            /* Form Column */
+            .contact-form-column {
+              flex: 1 1 50%; /* Takes up slightly more space */
+              min-width: 320px; /* Minimum width */
+              border: 2px solid #D50000; /* Red border */
+              border-radius: 10px;
+              padding: 35px 40px; /* Padding inside the border */
+            }
+            .contact-form-column h2 {
+              text-align: center;
+              margin-top: 0;
+              margin-bottom: 15px;
+              font-size: 30px; /* Slightly larger heading */
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+            }
+             /* Quotation Note Styling */
+             .contact-form-column .quotation-note {
+                text-align: center;
+                margin-bottom: 20px; /* Space below this note */
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.75);
+                line-height: 1.5;
+                background-color: rgba(255, 255, 255, 0.05); /* Subtle background */
+                border-left: 3px solid #D50000; /* Accent border */
+                padding: 10px 15px;
+                border-radius: 4px;
+             }
+
+            .contact-form-column p:not(.quotation-note):not(.form-notes) { /* Style for the main intro paragraph, excluding notes */
+              text-align: center;
+              margin-bottom: 10px; /* Reduced bottom margin */
+              font-size: 16px;
+              color: rgba(255, 255, 255, 0.8);
+              line-height: 1.6;
+            }
+            .contact-form-column .form-notes {
+              text-align: center;
+              margin-top: 0;
+              margin-bottom: 35px; /* Space before form fields */
+              font-size: 14px;
+              color: rgba(255, 255, 255, 0.7); /* Slightly dimmer */
+              line-height: 1.5;
+              font-style: italic; /* Optional: make it stand out */
+            }
+            .contact-form-column .form-notes strong {
+              color: rgba(255, 255, 255, 0.9); /* Make it slightly brighter */
+              font-weight: 600; /* Make it bolder */
+              display: inline; /* Keep on same line */
+              margin-top: 0;
+            }
+             /* Scaling note specific styling */
+            .contact-form-column .form-notes strong:last-of-type {
+                 display: block; /* Put scaling note on its own line */
+                 margin-top: 8px; /* Add some space above it */
+             }
+
+            .contact-form .form-group {
+              margin-bottom: 30px; /* Space between form fields */
+            }
+
+            /* Input Labels (General) */
+            .contact-form .form-label,
+            .contact-form .file-label,
+            .contact-form .radio-group legend {
+                display: block;
+                margin-bottom: 8px;
+                font-size: 14px;
+                font-weight: 600; /* Make labels slightly bolder */
+                color: rgba(255, 255, 255, 0.85);
+            }
+
+
+            /* Styling for text inputs and textarea */
+            .contact-form input[type="text"],
+            .contact-form input[type="email"],
+            .contact-form textarea {
+              width: 100%;
+              background-color: transparent;
+              border: none;
+              border-bottom: 1px solid #D50000; /* Red underline */
+              color: #ffffff;
+              padding: 12px 2px; /* Padding for text */
+              font-size: 16px;
+              font-family: 'Open Sans', sans-serif;
+              transition: border-color 0.3s ease;
+              box-sizing: border-box; /* Include padding in width calculation */
+            }
+            .contact-form input[type="text"]:focus,
+            .contact-form input[type="email"]:focus,
+            .contact-form textarea:focus {
+              outline: none;
+              border-bottom-color: #ffffff; /* White underline on focus */
+            }
+            /* Placeholder styling */
+            .contact-form ::placeholder {
+              color: rgba(255, 255, 255, 0.6);
+              opacity: 1; /* Firefox */
+            }
+            .contact-form :-ms-input-placeholder { color: rgba(255, 255, 255, 0.6); } /* IE */
+            .contact-form ::-ms-input-placeholder { color: rgba(255, 255, 255, 0.6); } /* Edge */
+            .contact-form textarea {
+              resize: vertical; /* Allow vertical resize only */
+              min-height: 100px; /* Increased min height for specs */
+            }
+
+            /* Select Dropdown Styling */
+            .contact-form .form-select {
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid #D50000;
+                color: #ffffff;
+                padding: 12px 2px;
+                font-size: 16px;
+                font-family: 'Open Sans', sans-serif;
+                transition: border-color 0.3s ease;
+                box-sizing: border-box;
+                appearance: none; /* Remove default appearance */
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                /* Add custom arrow */
+                background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+                background-repeat: no-repeat;
+                background-position: right 5px center;
+                background-size: 20px;
+                cursor: pointer;
+            }
+             /* Change color if no option is selected (using required attribute) */
+            .contact-form .form-select:required:invalid {
+                color: rgba(255, 255, 255, 0.6); /* Match placeholder color */
+            }
+            .contact-form .form-select option:not(:first-child) { /* Style options after the placeholder */
+                 color: #ffffff; /* Ensure valid options are white */
+            }
+            .contact-form .form-select:focus {
+                outline: none;
+                border-bottom-color: #ffffff;
+            }
+             /* Style select options (limited browser support) */
+            .contact-form .form-select option {
+                background-color: #333; /* Dark background for options */
+                color: #ffffff;
+            }
+
+
+            /* Radio Button Group Styling */
+            .contact-form .radio-group {
+                border: none; /* Remove default fieldset border */
+                padding: 0;
+                margin: 0;
+            }
+            .contact-form .radio-group legend {
+                 margin-bottom: 12px; /* Space below legend */
+            }
+            .contact-form .radio-option {
+                display: inline-block; /* Place options side-by-side */
+                margin-right: 25px; /* Space between options */
+                margin-bottom: 5px; /* Space below options */
+            }
+             .contact-form .radio-option input[type="radio"] {
+                margin-right: 6px;
+                /* Basic styling to match checkbox feel */
+                appearance: none;
+                -webkit-appearance: none;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #D50000;
+                border-radius: 50%; /* Make it round */
+                vertical-align: middle;
+                cursor: pointer;
+                position: relative;
+                top: -1px; /* Adjust vertical alignment */
+             }
+            .contact-form .radio-option input[type="radio"]:checked {
+                 border-color: #D50000;
+            }
+             /* Add inner circle for checked state */
+            .contact-form .radio-option input[type="radio"]:checked::after {
+                 content: '';
+                 display: block;
+                 width: 8px; /* Size of inner circle */
+                 height: 8px;
+                 border-radius: 50%;
+                 background-color: #D50000;
+                 position: absolute;
+                 top: 50%;
+                 left: 50%;
+                 transform: translate(-50%, -50%);
+            }
+            .contact-form .radio-option label {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.8);
+                cursor: pointer;
+                vertical-align: middle;
+            }
+
+
+            /* File Input Styling */
+            .contact-form input[type="file"] {
+              color: rgba(255, 255, 255, 0.8);
+              font-size: 14px;
+            }
+            .contact-form input[type="file"]::file-selector-button {
+                background-color: #333;
+                color: white;
+                border: 1px solid rgba(255,255,255,0.2);
+                padding: 6px 12px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+                margin-right: 10px;
+             }
+             .contact-form input[type="file"]::file-selector-button:hover {
+                 background-color: #444;
+             }
+             /* Added Postal Code Group Styling */
+             .postal-group {
+               display: flex;
+               align-items: baseline; /* Align input and text nicely */
+               gap: 10px;
+               flex-wrap: wrap; /* Allow wrapping on small screens */
+             }
+             .postal-group input[type="text"] {
+               flex: 1 1 180px; /* Allow input to grow but have a base size */
+               /* Ensure underline doesn't overlap label */
+               margin-bottom: 0;
+             }
+             .shipping-calc-label {
+               font-size: 13px;
+               color: rgba(255, 255, 255, 0.6);
+               white-space: nowrap;
+               flex-shrink: 0; /* Prevent label from shrinking too much */
+               padding-bottom: 5px; /* Align better with input baseline */
+             }
+             /* Added Checkbox Group Styling */
+             .checkbox-group {
+               display: flex;
+               align-items: center; /* Vertically center checkbox and label */
+               gap: 10px;
+               margin-bottom: 25px; /* Adjust spacing */
+             }
+             .checkbox-group input[type="checkbox"] {
+               width: auto; /* Let checkbox size naturally */
+               margin: 0; /* Reset margin */
+               flex-shrink: 0; /* Prevent checkbox from shrinking */
+               appearance: none; /* Remove default */
+               background-color: transparent;
+               border: 1px solid #D50000;
+               width: 16px;
+               height: 16px;
+               border-radius: 3px;
+               cursor: pointer;
+               position: relative;
+               display: inline-block;
+               vertical-align: middle; /* Align better with label */
+               top: -1px; /* Fine-tune alignment */
+             }
+             .checkbox-group input[type="checkbox"]:checked {
+                background-color: #D50000; /* Red check background */
+                border-color: #D50000;
+             }
+              /* Add checkmark using pseudo-element */
+             .checkbox-group input[type="checkbox"]:checked::after {
+                content: '';
+                position: absolute;
+                left: 4px;
+                top: 1px;
+                width: 4px;
+                height: 8px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+              }
+             .checkbox-group label {
+               font-size: 14px;
+               color: rgba(255, 255, 255, 0.8);
+               cursor: pointer;
+               line-height: 1.4;
+               margin: 0; /* Reset margin */
+               vertical-align: middle;
+             }
+            /* Submit Button Styling */
+            .contact-form .submit-button {
+              display: block;
+              width: 100%;
+              padding: 15px;
+              background-color: #D50000; /* Red background */
+              color: white;
+              border: none;
+              border-radius: 6px;
+              font-size: 16px;
+              font-weight: bold;
+              text-transform: uppercase;
+              letter-spacing: 1.5px; /* Increased letter spacing */
+              cursor: pointer;
+              transition: background-color 0.3s ease, transform 0.2s ease;
+              margin-top: 10px; /* Adjust top margin */
+            }
+            .contact-form .submit-button:hover {
+              background-color: #B71C1C; /* Darker red */
+              transform: translateY(-2px); /* Slight lift effect */
+            }
+            /* Responsive Adjustments */
+            @media screen and (max-width: 768px) {
+              .get-in-touch-container {
+                gap: 30px; /* Reduce gap when stacked */
+              }
+               .contact-image-column {
+                 position: static; /* Don't be sticky on mobile */
+               }
+              .contact-image-column,
+              .contact-form-column {
+                flex-basis: 100%; /* Make columns full width */
+                max-width: 500px; /* Optional: Limit form width */
+                margin: 0 auto; /* Center stacked columns */
+              }
+               .contact-form-column {
+                  padding: 30px 25px; /* Adjust padding for mobile */
+               }
+               .contact-form-column h2 { font-size: 26px; }
+               .contact-form-column p, .contact-form-column .form-notes, .contact-form-column .quotation-note { font-size: 14px; } /* Adjust notes size too */
+               /* Ensure postal group wraps cleanly */
+               .postal-group input[type="text"] {
+                  flex-basis: 100%; /* Make input take full width */
+               }
+               .shipping-calc-label {
+                  padding-bottom: 0; /* Reset padding adjustment */
+                  width: 100%; /* Take full width */
+                  text-align: right; /* Align label text to right */
+                  margin-top: -5px; /* Pull up slightly */
+               }
+               .checkbox-group {
+                 align-items: flex-start; /* Align checkbox to top */
+               }
+               .checkbox-group label {
+                 flex: 1; /* Allow label to wrap */
+               }
+                .contact-form .radio-option {
+                     display: block; /* Stack radio options on mobile */
+                     margin-right: 0;
+                     margin-bottom: 10px;
+                 }
+            }
+          </style>
+          <!-- ****** END ADDED CSS ****** -->
         </div>
       </div>
     </section>
@@ -405,7 +599,7 @@
     <section class="u-black u-clearfix u-section-5" id="block-1">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
-          <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
           <style> /* Your custom button style - Adapted for an <a> tag */
   .custom-book-btn {
     /* Base Styles */
@@ -443,15 +637,16 @@
     box-shadow: 0 0 8px #D50000; /* Red glow */
     transform: scaleX(1.05); /* Slight width increase */
   } </style>
+          <!-- ****** UPDATED BOOKING LINK ****** -->
           <div style="text-align: center; margin-top: 40px;">
-            <a href="https://calendar.app.google/N2TcvsqF9K54Rs8e8" class="custom-book-btn" target="_blank" rel="noopener noreferrer"> Book an Appointment </a>
+            <a href="https://calendar.app.google/yw8sensqjZs5ko3DA" class="custom-book-btn" target="_blank" rel="noopener noreferrer"> Book an Appointment </a>
           </div>
         </div>
       </div>
     </section>
-    
-    
-    
+
+
+
     <footer class="u-align-center u-black u-clearfix u-container-align-center u-footer u-footer" id="sec-a7cc"><div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
           <footer class="site-footer">
@@ -485,7 +680,7 @@
               </div>
             </div>
             <div class="footer-email-link">
-              <a href="mailto:big3dprints@outlook.com">big3dprints@outlook.com</a>
+              <a href="mailto:huzaifa@big3dprints.ca">huzaifa@big3dprints.ca</a>
             </div>
             <div class="footer-sponsorship"> Sponsored by <img src="https://i.postimg.cc/dVgtpcvz/ontariotechu-og-image.png" alt="Ontario Tech University logo">
             </div>
@@ -651,5 +846,5 @@
   /* End Mobile Styles */ </style>
         </div>
       </div></footer>
-  
+
 </body></html>
