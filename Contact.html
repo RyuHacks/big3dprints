@@ -120,22 +120,21 @@
               <div class="contact-form-column">
                 <h2>Get In Touch</h2>
 
-                <!-- ****** NEW: QUOTATION TIMELINE NOTE ****** -->
                 <p class="quotation-note">
                   Quotations will be done as soon as possible, usually on same day, if not within 3 days of initial request, assuming no preexisting issues with file, timeline, budget, and more.
                 </p>
 
                 <p>Tell us of your amazing 3D designs and it will come to life!</p>
-                <!-- ****** UPDATED FORM NOTES ****** -->
                 <p class="form-notes">
                   Please note: We currently offer <strong>FDM printing only (no resin printing)</strong>. We typically require more than a week for printing (same-week service is unavailable) and currently do not offer post-processing services like sanding or painting.<br>
                   <strong>For cosplay or scaling important parts, please specify if scaling is already done or needs to be done in the details section below!</strong>
                 </p>
 
+                <!-- ****** FORM - File Upload Disabled ****** -->
+                <!-- Removed enctype="multipart/form-data" -->
                 <form class="contact-form"
                       action="https://formspree.io/f/mwpooewd"
-                      method="POST"
-                      enctype="multipart/form-data">
+                      method="POST">
 
                   <!-- Form Fields -->
                   <div class="form-group">
@@ -153,10 +152,10 @@
                               required=""></textarea>
                   </div>
 
-                   <!-- ****** UPDATED: DEADLINE FIELD ****** -->
+                   <!-- Deadline Field -->
                   <div class="form-group">
                     <label for="deadline" class="form-label">Required Timeline (Approx.)</label>
-                    <select id="deadline" name="deadline" class="form-select" required> <!-- Added required -->
+                    <select id="deadline" name="deadline" class="form-select" required>
                        <option value="">-- Please select an option --</option>
                        <option value="2_weeks">Within 2 Weeks</option>
                        <option value="3_weeks">Within 3 Weeks</option>
@@ -179,11 +178,15 @@
                      </fieldset>
                    </div>
 
-                  <!-- File Upload Field -->
+                  <!-- ****** FILE UPLOAD DISABLED ****** -->
+                  <!--
                   <div class="form-group">
                     <label for="stlfile" class="file-label">Upload Design File (.stl, .obj, .step, .blend - Optional, Max 10MB):</label>
                     <input type="file" id="stlfile" name="stlfile" accept=".stl,.obj,.step,.blend">
                   </div>
+                  -->
+                  <!-- ****** END FILE UPLOAD DISABLED ****** -->
+
 
                   <div class="form-group postal-group">
                     <input type="text" id="postal_code" name="postal_code" placeholder="Postal Code (e.g., A1A 1A1)" pattern="[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d" title="Enter a valid Canadian postal code (A1A 1A1) for shipping calculation."><span class="shipping-calc-label">(for shipping estimate)</span>
@@ -206,7 +209,7 @@
               </div>
             </div>
           </section>
-          <!-- ****** ADDED/UPDATED CSS ****** -->
+          <!-- ****** CSS ****** -->
           <style>
             .get-in-touch-section {
               background-color: #000000; /* Black background */
@@ -300,7 +303,7 @@
 
             /* Input Labels (General) */
             .contact-form .form-label,
-            .contact-form .file-label,
+            .contact-form .file-label, /* Keep file label style even if input is hidden */
             .contact-form .radio-group legend {
                 display: block;
                 margin-bottom: 8px;
@@ -435,24 +438,12 @@
             }
 
 
-            /* File Input Styling */
-            .contact-form input[type="file"] {
-              color: rgba(255, 255, 255, 0.8);
-              font-size: 14px;
-            }
-            .contact-form input[type="file"]::file-selector-button {
-                background-color: #333;
-                color: white;
-                border: 1px solid rgba(255,255,255,0.2);
-                padding: 6px 12px;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: background-color 0.2s ease;
-                margin-right: 10px;
-             }
-             .contact-form input[type="file"]::file-selector-button:hover {
-                 background-color: #444;
-             }
+            /* File Input Styling (label style retained) */
+            /* .contact-form .file-label { ... } */
+            /* .contact-form input[type="file"] { ... } */
+            /* .contact-form input[type="file"]::file-selector-button { ... } */
+
+
              /* Added Postal Code Group Styling */
              .postal-group {
                display: flex;
@@ -582,7 +573,7 @@
                  }
             }
           </style>
-          <!-- ****** END ADDED CSS ****** -->
+          <!-- ****** END CSS ****** -->
         </div>
       </div>
     </section>
@@ -637,7 +628,7 @@
     box-shadow: 0 0 8px #D50000; /* Red glow */
     transform: scaleX(1.05); /* Slight width increase */
   } </style>
-          <!-- ****** UPDATED BOOKING LINK ****** -->
+          <!-- Booking Link -->
           <div style="text-align: center; margin-top: 40px;">
             <a href="https://calendar.app.google/yw8sensqjZs5ko3DA" class="custom-book-btn" target="_blank" rel="noopener noreferrer"> Book an Appointment </a>
           </div>
